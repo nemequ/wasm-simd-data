@@ -59,8 +59,13 @@ enough to write these that I don't plan on bothering to do so.
     in the lowering/ directory.  I strongly recommend using `-j` as
     well.
  3. Run the generate.py script in the scripts/ directory to generate
-    the final data.  Currently it outputs YAML for readability, but
-    this will change to JSON soon.
+    the final data.
+    
+Currently it outputs YAML for readability, but this will change to JSON
+soon.  If you'd like to see an example of the current output, I've
+uploaded a copy to:
+
+  https://gist.github.com/nemequ/356f7356b1373bea2d58bdd3e69769b6
 
 I'll probably set up GitHub Actions or something to automatically
 deploy an updated version every time a new commit hits the main branch
