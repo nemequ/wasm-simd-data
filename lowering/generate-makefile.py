@@ -2,10 +2,10 @@
 
 import yaml
 
-instructions = {}
+families = {}
 targets = {}
 with open("../data/instructions.yml", 'r') as fp:
-  instructions = yaml.safe_load(fp)
+  families = yaml.safe_load(fp)
 with open("../data/targets.yml", 'r') as fp:
   targets = yaml.safe_load(fp)
 
@@ -19,28 +19,37 @@ print('.PHONY: clean')
 print('')
 
 print('all: ', end = '')
-for instruction in instructions["instructions"]:
-  for target in targets["targets"]:
-    for option in target["options"]:
-      print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
+for family in families:
+  if not "instructions" in family:
+    continue
+  for instruction in family["instructions"]:
+    for target in targets["targets"]:
+      for option in target["options"]:
+        print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
 print("\n")
 
 print('clean: ')
 print('\trm -rf ', end = '')
-for instruction in instructions["instructions"]:
-  for target in targets["targets"]:
-    for option in target["options"]:
-      print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
-      print('.'.join([instruction["name"], target["name"], option["name"], 's']), end = " ")
+for family in families:
+  if not "instructions" in family:
+    continue
+  for instruction in family["instructions"]:
+    for target in targets["targets"]:
+      for option in target["options"]:
+        print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
+        print('.'.join([instruction["name"], target["name"], option["name"], 's']), end = " ")
 print("\n")
 
-for instruction in instructions["instructions"]:
-  for target in targets["targets"]:
-    for option in target["options"]:
-      print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = ': ')
-      print('.'.join([instruction["name"], target["name"], option["name"], 's']))
-      print('\t$(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ $^ 2>/dev/null' % (target["triple"], target["analysis_cpu"]))
-      print('.'.join([instruction["name"], target["name"], option["name"], 's']), end = ': ')
-      print('.'.join([instruction["name"], 'c']))
-      print('\t$(CLANG) --target=%s %s $(CFLAGS) -S -o $@ $^' % (target["triple"], option["flags"]))
-    print('')
+for family in families:
+  if not "instructions" in family:
+    continue
+  for instruction in family["instructions"]:
+    for target in targets["targets"]:
+      for option in target["options"]:
+        print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = ': ')
+        print('.'.join([instruction["name"], target["name"], option["name"], 's']))
+        print('\t$(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ $^ 2>/dev/null' % (target["triple"], target["analysis_cpu"]))
+        print('.'.join([instruction["name"], target["name"], option["name"], 's']), end = ': ')
+        print('.'.join([instruction["name"], 'c']))
+        print('\t$(CLANG) --target=%s %s $(CFLAGS) -S -o $@ $^' % (target["triple"], option["flags"]))
+      print('')

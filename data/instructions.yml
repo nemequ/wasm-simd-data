@@ -1,4 +1,6 @@
-families:
+###
+### Const
+###
 - name: const
   # Note that the name can be used to generate a link to the relevant
   # section in the specification, so the name must exactly match
@@ -9,6 +11,17 @@ families:
     bytes in the immediate mode operand `imm`. The `v128.const`
     instruction is encoded with 16 immediate bytes which provide the
     bits of the vector directly.
+  instructions:
+  - name: v128.const
+    opcode: 0x0c
+    params:
+    - name: imm
+      type: ImmByte[16]
+    return: v128
+
+###
+### Splat
+###
 - name: splat
   title: Create vector with identical lanes
   description: >-
@@ -19,6 +32,32 @@ families:
       for i in range(S.Lanes):
           result[i] = S.Reduce(x)
       return result
+  instructions:
+  - name: i8x16.splat
+    opcode: 0x01
+    params:
+    - name: x
+      type: i32
+    intrin:
+    - name: wasm_i8x16_splat
+      return: v128_t
+      params:
+      - type: int8_t
+        name: __a
+        map: x
+    wav:
+    - name: wav_i8x16_splat
+      alias:
+      - wav_splat
+      return: wav_i8x16_t
+      params:
+      - type: int8_t
+        name: value
+        map: x
+
+###
+### Load
+###
 - name: load
   title: Load
   description: >-
@@ -26,58 +65,3 @@ families:
   operation: |
     def S.load(memarg):
       return S.from_bytes(memory[memarg.offset:memarg.offset + 16])
-
-instructions:
-- name: v128.const
-  opcode: 0x0c
-  params:
-  - name: imm
-    type: ImmByte[16]
-  return: v128
-
-- name: i8x16.splat
-  opcode: 0x01
-  params:
-  - name: x
-    type: i32
-  intrin:
-  - name: wasm_i8x16_splat
-    return: v128_t
-    params:
-    - type: int8_t
-      name: __a
-      map: x
-  wav:
-  - name: wav_i8x16_splat
-    alias:
-    - wav_splat
-    return: wav_i8x16_t
-    params:
-    - type: int8_t
-      name: value
-      map: x
-# ...
-- name: v128.load
-  opcode: 0x00
-  params:
-  - name: memarg
-  return: v128
-  intrin:
-  - name: wasm_v128_load
-    return: v128_t
-    params:
-    - name: __mem
-      type: const void *
-      map: memarg
-  wav:
-  - name: wav_i8x16_load
-    alias:
-    - wav_load
-    return: wav_i8x16_t
-    params:
-    - name: src
-      type: int8_t
-      array_length: 16
-      map: memarg
-
-    
