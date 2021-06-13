@@ -23,8 +23,6 @@ print('')
 print('.PHONY: clean')
 print('')
 
-print(families)
-
 print('all: ', end = '')
 for family_name in families.keys():
   family = families[family_name]
