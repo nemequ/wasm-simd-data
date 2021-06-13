@@ -8,8 +8,9 @@ operation: |
         result[i] = S.Reduce(x)
     return result
 instructions:
+
 - name: i8x16.splat
-  opcode: 0x01
+  opcode: 0x0f
   params:
   - name: x
     type: i32
@@ -27,5 +28,142 @@ instructions:
     return: wav_i8x16_t
     params:
     - type: int8_t
+      name: value
+      map: x
+  - name: wav_u8x16_splat
+    alias:
+    - wav_splat
+    return: wav_u8x16_t
+    params:
+    - type: uint8_t
+      name: value
+      map: x
+
+- name: i16x8.splat
+  opcode: 0x10
+  params:
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i16x8_splat
+    return: v128_t
+    params:
+    - type: int16_t
+      name: __a
+      map: x
+  wav:
+  - name: wav_i16x8_splat
+    alias:
+    - wav_splat
+    return: wav_i16x8_t
+    params:
+    - type: int16_t
+      name: value
+  - name: wav_u16x8_splat
+    alias:
+    - wav_splat
+    return: wav_u16x8_t
+    params:
+    - type: uint16_t
+      name: value
+
+- name: i32x4.splat
+  opcode: 0x11
+  params:
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i32x4_splat
+    return: v128_t
+    params:
+    - type: int32_t
+      name: __a
+      map: x
+  wav:
+  - name: wav_i32x4_splat
+    alias:
+    - wav_splat
+    return: wav_i32x4_t
+    params:
+    - type: int32_t
+      name: value
+  - name: wav_u32x4_splat
+    alias:
+    - wav_splat
+    return: wav_u32x4_t
+    params:
+    - type: uint32_t
+      name: value
+
+- name: i64x2.splat
+  opcode: 0x12
+  params:
+  - name: x
+    type: i64
+  intrin:
+  - name: wasm_i64x2_splat
+    return: v128_t
+    params:
+    - type: int64_t
+      name: __a
+      map: x
+  wav:
+  - name: wav_i64x2_splat
+    alias:
+    - wav_splat
+    return: wav_i64x2_t
+    params:
+    - type: int64_t
+      name: value
+      map: x
+  - name: wav_u64x2_splat
+    alias:
+    - wav_splat
+    return: wav_u64x2_t
+    params:
+    - type: uint64_t
+      name: value
+      map: x
+
+- name: f32x4.splat
+  opcode: 0x13
+  params:
+  - name: x
+    type: f32
+  intrin:
+  - name: wasm_f32x4_splat
+    return: v128_t
+    params:
+    - type: float
+      name: __a
+      map: x
+  wav:
+  - name: wav_f32x4_splat
+    alias:
+    - wav_splat
+    return: wav_f32x4_t
+    params:
+    - type: float
+      name: value
+
+- name: f64x2.splat
+  opcode: 0x14
+  params:
+  - name: x
+    type: f64
+  intrin:
+  - name: wasm_f64x2_splat
+    return: v128_t
+    params:
+    - type: double
+      name: __a
+      map: x
+  wav:
+  - name: wav_f64x2_splat
+    alias:
+    - wav_splat
+    return: wav_f64x2_t
+    params:
+    - type: double
       name: value
       map: x
