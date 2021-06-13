@@ -4,3 +4,281 @@ description: >-
 operation: |
   def S.load(memarg):
     return S.from_bytes(memory[memarg.offset:memarg.offset + 16])
+
+instructions:
+- name: v128.load
+  opcode: 0x00
+  params:
+  - name: memarg
+    type: "*"
+  intrin:
+  - name: wasm_v128_load
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: memarg
+      alignment: 1
+  wav:
+  - name: wav_i8x16_load
+    return: wav_i8x16_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: int8_t[16]
+      map: memarg
+  - name: wav_i16x8_load
+    return: wav_i16x8_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: int16_t[8]
+      map: memarg
+  - name: wav_i32x4_load
+    return: wav_i32x4_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: int32_t[4]
+      map: memarg
+  - name: wav_i64x2_load
+    return: wav_i64x2_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: int64_t[2]
+      map: memarg
+  - name: wav_u8x16_load
+    return: wav_u8x16_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: uint8_t[16]
+      map: memarg
+  - name: wav_u16x8_load
+    return: wav_u16x8_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: uint16_t[8]
+      map: memarg
+  - name: wav_u32x4_load
+    return: wav_u32x4_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: uint32_t[4]
+      map: memarg
+  - name: wav_i64x2_load
+    return: wav_i64x2_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: int64_t[2]
+      map: memarg
+  - name: wav_f32x4_load
+    return: wav_f32x4_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: float[4]
+      map: memarg
+  - name: wav_f64x2_load
+    return: wav_f64x2_t
+    alias:
+    - wav_load
+    params:
+    - name: src
+      type: double[2]
+      map: memarg
+
+  - name: wav_i8x16_loada
+    return: wav_i8x16_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: int8_t[16]
+      map: memarg
+      alignment: 16
+  - name: wav_i16x8_loada
+    return: wav_i16x8_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: int16_t[8]
+      map: memarg
+      alignment: 16
+  - name: wav_i32x4_loada
+    return: wav_i32x4_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: int32_t[4]
+      map: memarg
+      alignment: 16
+  - name: wav_i64x2_loada
+    return: wav_i64x2_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: int64_t[2]
+      map: memarg
+      alignment: 16
+  - name: wav_u8x16_loada
+    return: wav_u8x16_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: uint8_t[16]
+      map: memarg
+      alignment: 16
+  - name: wav_u16x8_loada
+    return: wav_u16x8_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: uint16_t[8]
+      map: memarg
+      alignment: 16
+  - name: wav_u32x4_loada
+    return: wav_u32x4_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: uint32_t[4]
+      map: memarg
+      alignment: 16
+  - name: wav_i64x2_loada
+    return: wav_i64x2_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: int64_t[2]
+      map: memarg
+      alignment: 16
+  - name: wav_f32x4_loada
+    return: wav_f32x4_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: float[4]
+      map: memarg
+      alignment: 16
+  - name: wav_f64x2_loada
+    return: wav_f64x2_t
+    alias:
+    - wav_loada
+    params:
+    - name: src
+      type: double[2]
+      map: memarg
+      alignment: 16
+
+  - name: wav_i8x16_loadu
+    return: wav_i8x16_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_i16x8_loadu
+    return: wav_i16x8_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_i32x4_loadu
+    return: wav_i32x4_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_i64x2_loadu
+    return: wav_i64x2_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_u8x16_loadu
+    return: wav_u8x16_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_u16x8_loadu
+    return: wav_u16x8_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_u32x4_loadu
+    return: wav_u32x4_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_i64x2_loadu
+    return: wav_i64x2_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_f32x4_loadu
+    return: wav_f32x4_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1
+  - name: wav_f64x2_loadu
+    return: wav_f64x2_t
+    alias:
+    - wav_loadu
+    params:
+    - name: src
+      type: '*'
+      map: memarg
+      alignment: 1

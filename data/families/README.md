@@ -47,9 +47,9 @@ Parameter name.
 
 #### type
 
-Parameter type.  Note that this may include square brackets with a
-numeric value inside to signify an array and the length of the array.
-For example, `ImmByte[16]`.
+Parameter type.  Note that this may include square brackets with an
+optional numeric value inside to signify an array and the length of the
+array. For example, `ImmByte[16]`.
 
 ### intrin
 
@@ -75,7 +75,15 @@ List of parameters.
 
 ##### type
 
-Type of the parameter.
+Type of the parameter.  Note that this may include square brackets with
+an optional numeric value inside to signify an array and the length of
+the array. For example, `int8_t[16]`.
+
+##### alignment
+
+For pointer or array types, this optional field may be used to specify
+the required alignment in bytes.  If not specified the alignment is
+assumed to be the natural alignment for the underlying type.
 
 ##### name
 
@@ -110,6 +118,16 @@ List of parameters.
 ##### type
 
 Type of the parameter.  Generally one of the `wav_AxB_t` types.
+
+Note that this may include square brackets with an optional numeric
+value inside to signify an array and the length of the array. For
+example, `int8_t[16]`.
+
+##### alignment
+
+For pointer or array types, this optional field may be used to specify
+the required alignment in bytes.  If not specified the alignment is
+assumed to be the natural alignment for the underlying type.
 
 ##### name
 
