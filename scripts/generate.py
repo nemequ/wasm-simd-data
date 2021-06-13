@@ -6,15 +6,15 @@ import pprint
 pp = pprint.PrettyPrinter(indent = 2)
 
 families = {}
-for filename in os.listdir(os.path.join('..', 'data', 'families')):
+for filename in os.listdir(os.path.join(os.path.dirname(__file__), '..', 'data', 'families')):
   if not filename.endswith(".yml"):
     continue
 
-  with open(os.path.join('..', 'data', 'families', filename), 'r') as fp:
+  with open(os.path.join(os.path.dirname(__file__), '..', 'data', 'families', filename), 'r') as fp:
     families[filename[:-4]] = yaml.safe_load(fp)
 
 targets = {}
-with open(os.path.join("..", "data", "targets.yml"), 'r') as fp:
+with open(os.path.join(os.path.dirname(__file__), "..", "data", "targets.yml"), 'r') as fp:
   targets = yaml.safe_load(fp)
 
 for family_name in families.keys():
@@ -30,7 +30,7 @@ for family_name in families.keys():
       for option in target["options"]:
         mca_sections = []
 
-        with open(os.path.join('..', 'lowering', ".".join([ inst["name"], target["name"], option["name"], "json" ]))) as jsonfp:
+        with open(os.path.join(os.path.dirname(__file__), '..', 'lowering', ".".join([ inst["name"], target["name"], option["name"], "json" ]))) as jsonfp:
           inside_data = False
           insn_list = ""
 
