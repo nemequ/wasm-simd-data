@@ -79,6 +79,4 @@ for family in families:
           "instructions": insn_list
         })
 
-# json.dump(families, sys.stdout, indent = 2)
-
-yaml.dump(families, sys.stdout)
+json.dump(families, sys.stdout, indent = 2)
