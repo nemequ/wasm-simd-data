@@ -24,16 +24,16 @@ targets:
     flags: -msse4.1
   - name: SSE4.2
     flags: -msse4.2
-  - name: FMA
-    flags: -mfma
-  - name: XOP
-    flags: -mxop
   - name: GFNI
     flags: -mgfni
   - name: AVX
     flags: -mavx
   - name: GFNI+AVX
     flags: -mgfni -mavx
+  - name: FMA
+    flags: -mfma
+  - name: XOP
+    flags: -mxop
   - name: AVX2
     flags: -mavx2
   - name: GFNI+AVX2
