@@ -1,0 +1,389 @@
+title: Constant
+description: >-
+  Materialize a constant `v128` SIMD value from the 16 immediate
+  bytes in the immediate mode operand `imm`. The `v128.const`
+  instruction is encoded with 16 immediate bytes which provide the
+  bits of the vector directly.
+instructions:
+- name: v128.const
+  opcode: 0x0c
+  params:
+  - name: imm
+    type: ImmByte[16]
+  return: v128
+  intrin:
+  - name: wasm_i8x16_const
+    return: v128_t
+    params:
+    - type: int8_t
+      name: __c0
+      map: imm[0]
+    - type: int8_t
+      name: __c1
+      map: imm[1]
+    - type: int8_t
+      name: __c2
+      map: imm[2]
+    - type: int8_t
+      name: __c3
+      map: imm[3]
+    - type: int8_t
+      name: __c4
+      map: imm[4]
+    - type: int8_t
+      name: __c5
+      map: imm[5]
+    - type: int8_t
+      name: __c6
+      map: imm[6]
+    - type: int8_t
+      name: __c7
+      map: imm[7]
+    - type: int8_t
+      name: __c8
+      map: imm[8]
+    - type: int8_t
+      name: __c9
+      map: imm[9]
+    - type: int8_t
+      name: __c10
+      map: imm[10]
+    - type: int8_t
+      name: __c11
+      map: imm[11]
+    - type: int8_t
+      name: __c12
+      map: imm[12]
+    - type: int8_t
+      name: __c13
+      map: imm[13]
+    - type: int8_t
+      name: __c14
+      map: imm[14]
+    - type: int8_t
+      name: __c15
+      map: imm[15]
+  - name: wasm_i16x8_const
+    return: v128_t
+    params:
+    - type: int16_t
+      name: __c0
+      map: imm[0:1]
+    - type: int16_t
+      name: __c1
+      map: imm[2:3]
+    - type: int16_t
+      name: __c2
+      map: imm[4:5]
+    - type: int16_t
+      name: __c3
+      map: imm[6:7]
+    - type: int16_t
+      name: __c4
+      map: imm[8:9]
+    - type: int16_t
+      name: __c5
+      map: imm[10:11]
+    - type: int16_t
+      name: __c6
+      map: imm[12:13]
+    - type: int16_t
+      name: __c7
+      map: imm[14:15]
+  - name: wasm_i32x4_const
+    return: v128_t
+    params:
+    - type: int32_t
+      name: __c0
+      map: imm[0:3]
+    - type: int32_t
+      name: __c1
+      map: imm[4:7]
+    - type: int32_t
+      name: __c2
+      map: imm[8:11]
+    - type: int32_t
+      name: __c3
+      map: imm[12:15]
+  - name: wasm_i64x2_const
+    return: v128_t
+    params:
+    - type: int64_t
+      name: __c0
+      map: imm[0:7]
+    - type: int64_t
+      name: __c1
+      map: imm[8:15]
+  - name: wasm_f32x4_const
+    return: v128_t
+    params:
+    - type: float
+      name: __c0
+      map: imm[0:3]
+    - type: float
+      name: __c1
+      map: imm[4:7]
+    - type: float
+      name: __c2
+      map: imm[8:11]
+    - type: float
+      name: __c3
+      map: imm[12:15]
+  - name: wasm_f64x2_const
+    return: v128_t
+    params:
+    - type: double
+      name: __c0
+      map: imm[0:7]
+    - type: double
+      name: __c1
+      map: imm[8:15]
+  wav:
+  - name: wav_i8x16_const
+    alias:
+    - wav_const
+    return: wav_8x16_t
+    params:
+    - type: int8_t
+      name: c0
+      map: imm[0]
+    - type: int8_t
+      name: c1
+      map: imm[1]
+    - type: int8_t
+      name: c2
+      map: imm[2]
+    - type: int8_t
+      name: c3
+      map: imm[3]
+    - type: int8_t
+      name: c4
+      map: imm[4]
+    - type: int8_t
+      name: c5
+      map: imm[5]
+    - type: int8_t
+      name: c6
+      map: imm[6]
+    - type: int8_t
+      name: c7
+      map: imm[7]
+    - type: int8_t
+      name: c8
+      map: imm[8]
+    - type: int8_t
+      name: c9
+      map: imm[9]
+    - type: int8_t
+      name: c10
+      map: imm[10]
+    - type: int8_t
+      name: c11
+      map: imm[11]
+    - type: int8_t
+      name: c12
+      map: imm[12]
+    - type: int8_t
+      name: c13
+      map: imm[13]
+    - type: int8_t
+      name: c14
+      map: imm[14]
+    - type: int8_t
+      name: c15
+      map: imm[15]
+  - name: wav_i16x8_const
+    alias:
+    - wav_const
+    return: wav_16x8_t
+    params:
+    - type: int16_t
+      name: c0
+      map: imm[0:1]
+    - type: int16_t
+      name: c1
+      map: imm[2:3]
+    - type: int16_t
+      name: c2
+      map: imm[4:5]
+    - type: int16_t
+      name: c3
+      map: imm[6:7]
+    - type: int16_t
+      name: c4
+      map: imm[8:9]
+    - type: int16_t
+      name: c5
+      map: imm[10:11]
+    - type: int16_t
+      name: c6
+      map: imm[12:13]
+    - type: int16_t
+      name: c7
+      map: imm[14:15]
+  - name: wav_i32x4_const
+    alias:
+    - wav_const
+    return: wav_32x4_t
+    params:
+    - type: int32_t
+      name: c0
+      map: imm[0:3]
+    - type: int32_t
+      name: c1
+      map: imm[4:7]
+    - type: int32_t
+      name: c2
+      map: imm[8:11]
+    - type: int32_t
+      name: c3
+      map: imm[12:15]
+  - name: wav_i64x2_const
+    alias:
+    - wav_const
+    return: wav_64x2_t
+    params:
+    - type: int64_t
+      name: c0
+      map: imm[0:7]
+    - type: int64_t
+      name: c1
+      map: imm[8:15]
+  - name: wav_u8x16_const
+    alias:
+    - wav_const
+    return: wav_8x16_t
+    params:
+    - type: uint8_t
+      name: c0
+      map: imm[0]
+    - type: uint8_t
+      name: c1
+      map: imm[1]
+    - type: uint8_t
+      name: c2
+      map: imm[2]
+    - type: uint8_t
+      name: c3
+      map: imm[3]
+    - type: uint8_t
+      name: c4
+      map: imm[4]
+    - type: uint8_t
+      name: c5
+      map: imm[5]
+    - type: uint8_t
+      name: c6
+      map: imm[6]
+    - type: uint8_t
+      name: c7
+      map: imm[7]
+    - type: uint8_t
+      name: c8
+      map: imm[8]
+    - type: uint8_t
+      name: c9
+      map: imm[9]
+    - type: uint8_t
+      name: c10
+      map: imm[10]
+    - type: uint8_t
+      name: c11
+      map: imm[11]
+    - type: uint8_t
+      name: c12
+      map: imm[12]
+    - type: uint8_t
+      name: c13
+      map: imm[13]
+    - type: uint8_t
+      name: c14
+      map: imm[14]
+    - type: uint8_t
+      name: c15
+      map: imm[15]
+  - name: wav_u16x8_const
+    alias:
+    - wav_const
+    return: wav_16x8_t
+    params:
+    - type: uint16_t
+      name: c0
+      map: imm[0:1]
+    - type: uint16_t
+      name: c1
+      map: imm[2:3]
+    - type: uint16_t
+      name: c2
+      map: imm[4:5]
+    - type: uint16_t
+      name: c3
+      map: imm[6:7]
+    - type: uint16_t
+      name: c4
+      map: imm[8:9]
+    - type: uint16_t
+      name: c5
+      map: imm[10:11]
+    - type: uint16_t
+      name: c6
+      map: imm[12:13]
+    - type: uint16_t
+      name: c7
+      map: imm[14:15]
+  - name: wav_u32x4_const
+    alias:
+    - wav_const
+    return: wav_32x4_t
+    params:
+    - type: uint32_t
+      name: c0
+      map: imm[0:3]
+    - type: uint32_t
+      name: c1
+      map: imm[4:7]
+    - type: uint32_t
+      name: c2
+      map: imm[8:11]
+    - type: uint32_t
+      name: c3
+      map: imm[12:15]
+  - name: wav_u64x2_const
+    alias:
+    - wav_const
+    return: wav_64x2_t
+    params:
+    - type: uint64_t
+      name: c0
+      map: imm[0:7]
+    - type: uint64_t
+      name: c1
+      map: imm[8:15]
+  - name: wav_f32x4_const
+    alias:
+    - wav_const
+    return: wav_32x4_t
+    params:
+    - type: float
+      name: c0
+      map: imm[0:3]
+    - type: float
+      name: c1
+      map: imm[4:7]
+    - type: float
+      name: c2
+      map: imm[8:11]
+    - type: float
+      name: c3
+      map: imm[12:15]
+  - name: wav_f64x2_const
+    alias:
+    - wav_const
+    return: wav_64x2_t
+    params:
+    - type: double
+      name: c0
+      map: imm[0:7]
+    - type: double
+      name: c1
+      map: imm[8:15]

@@ -6,16 +6,23 @@ import pprint
 pp = pprint.PrettyPrinter(indent = 2)
 
 families = {}
+for filename in os.listdir(os.path.join('..', 'data', 'families')):
+  if not filename.endswith(".yml"):
+    continue
+
+  with open(os.path.join('..', 'data', 'families', filename), 'r') as fp:
+    families[filename[:-4]] = yaml.safe_load(fp)
+
 targets = {}
-with open("../data/instructions.yml", 'r') as fp:
-  instruction_data = yaml.safe_load(fp)
-  families = instruction_data
 with open(os.path.join("..", "data", "targets.yml"), 'r') as fp:
   targets = yaml.safe_load(fp)
 
-for family in families:
+for family_name in families.keys():
+  family = families[family_name]
+
   if not "instructions" in family:
     continue
+
   for inst in family["instructions"]:
     for target in targets:
       unique_implementations = []

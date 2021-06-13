@@ -43,12 +43,12 @@ idea I really am open to it.
 ## Generating the Data
 
 The input data about the instructions comes from from
-data/instructions.yml.  Information about targets to use to generate
+`data/families/*.yml`.  Information about targets to use to generate
 data on implementations comes from data/targets.yml.
 
-Every instruction will also need a lowering/${INSTRUCTION}.c source
+Every instruction will also need a `lowering/${INSTRUCTION}.c` source
 file with a trivial implementation.  Honestly, this could probably
-be generated based on the data in instructions.yml, but it's easy
+be generated based on the data in `data/families/*.yml`, but it's easy
 enough to write these that I don't plan on bothering to do so.
 
  1. Use lowering/generate-makefile.py to generate a Makefile.
@@ -74,11 +74,6 @@ in the relatively near future.
 
 The big items are
 
- 1. Finish adding data to instructions.yml + lowering/*.c
+ 1. Finish adding data to `instructions/families/*.yml` + `lowering/*.c`
  2. Improve implementations in SIMDe
  3. Create an HTML interface similar to Intel's and Arm's.
-
-I'm starting work on #3 right now…  I haven't done much front-end work
-in a while, and it's a good opportunity to play with Dart for web.  I
-should have a better idea on whether there will be a student for #2
-soon.
