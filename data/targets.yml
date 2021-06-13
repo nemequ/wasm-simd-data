@@ -6,7 +6,6 @@
 # will be displayed as "AVX" if AVX comes first, and "AVX2" if AVX2
 # comes first.  So don't put AVX-512VL at the beginning!
 
-targets:
 - name: x86_64
   triple: x86_64-unknown-linux-gnu
   return_insn: retq

@@ -11,7 +11,7 @@ with open("../data/instructions.yml", 'r') as fp:
   instruction_data = yaml.safe_load(fp)
   families = instruction_data
 with open(os.path.join("..", "data", "targets.yml"), 'r') as fp:
-  targets = yaml.safe_load(fp)["targets"]
+  targets = yaml.safe_load(fp)
 
 for family in families:
   if not "instructions" in family:

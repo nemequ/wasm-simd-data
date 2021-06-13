@@ -3,7 +3,7 @@
 import yaml
 
 families = {}
-targets = {}
+targets = []
 with open("../data/instructions.yml", 'r') as fp:
   families = yaml.safe_load(fp)
 with open("../data/targets.yml", 'r') as fp:
@@ -23,7 +23,7 @@ for family in families:
   if not "instructions" in family:
     continue
   for instruction in family["instructions"]:
-    for target in targets["targets"]:
+    for target in targets:
       for option in target["options"]:
         print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
 print("\n")
@@ -34,7 +34,7 @@ for family in families:
   if not "instructions" in family:
     continue
   for instruction in family["instructions"]:
-    for target in targets["targets"]:
+    for target in targets:
       for option in target["options"]:
         print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = " ")
         print('.'.join([instruction["name"], target["name"], option["name"], 's']), end = " ")
@@ -44,7 +44,7 @@ for family in families:
   if not "instructions" in family:
     continue
   for instruction in family["instructions"]:
-    for target in targets["targets"]:
+    for target in targets:
       for option in target["options"]:
         print('.'.join([instruction["name"], target["name"], option["name"], 'json']), end = ': ')
         print('.'.join([instruction["name"], target["name"], option["name"], 's']))
