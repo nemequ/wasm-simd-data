@@ -55,6 +55,18 @@ Parameter type.  Note that this may include square brackets with an
 optional numeric value inside to signify an array and the length of the
 array. For example, `ImmByte[16]`.
 
+#### range
+
+Optional.  For integer types, the range of allowable values.
+
+##### min
+
+Minimum allowed value.
+
+##### max
+
+Maximum allowed value.
+
 ### intrin
 
 List of instinsics from [wasm_simd128.h](https://github.com/llvm/llvm-project/blob/main/clang/lib/Headers/wasm_simd128.h).
@@ -82,6 +94,18 @@ List of parameters.
 Type of the parameter.  Note that this may include square brackets with
 an optional numeric value inside to signify an array and the length of
 the array. For example, `int8_t[16]`.
+
+##### range
+
+Optional.  For integer types, the range of allowable values.
+
+###### min
+
+Minimum allowed value.
+
+###### max
+
+Maximum allowed value.
 
 ##### alignment
 
@@ -126,6 +150,18 @@ Type of the parameter.  Generally one of the `wav_AxB_t` types.
 Note that this may include square brackets with an optional numeric
 value inside to signify an array and the length of the array. For
 example, `int8_t[16]`.
+
+##### range
+
+Optional.  For integer types, the range of allowable values.
+
+###### min
+
+Minimum allowed value.
+
+###### max
+
+Maximum allowed value.
 
 ##### alignment
 

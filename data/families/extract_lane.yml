@@ -1,0 +1,329 @@
+title: Extract lane as a scalar
+description: >-
+  Extract the scalar value of lane specified in the immediate mode
+  operand `imm` in `a`. The `{interpretation}.extract_lane{_s}{_u}`
+  instructions are encoded with one immediate byte providing the
+  index of the lane to extract.
+
+  The _s and _u variants will sign-extend or zero-extend the lane
+  value to i32 respectively.
+operation: |
+  def S.extract_lane(a, i):
+    return a[i]
+instructions:
+- name: i8x16.extract_lane_s
+  opcode: 0x15
+  return: i32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx16
+  intrin:
+  - name: wasm_i8x16_extract_lane
+    return: int
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+  wav:
+  - name: wav_i8x16_extract_lane
+    alias:
+    - wav_extract_lane
+    return: int8_t
+    params:
+    - name: v
+      type: wav_i8x16_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+- name: i8x16.extract_lane_u
+  opcode: 0x16
+  return: i32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx16
+  intrin:
+  - name: wasm_u8x16_extract_lane
+    return: unsigned int
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+  wav:
+  - name: wav_u8x16_extract_lane
+    alias:
+    - wav_extract_lane
+    return: uint8_t
+    params:
+    - name: v
+      type: wav_u8x16_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+- name: i16x8.extract_lane_s
+  opcode: 0x18
+  return: i32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx8
+  intrin:
+  - name: wasm_i16x8_extract_lane
+    return: int
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+  wav:
+  - name: wav_i16x8_extract_lane
+    alias:
+    - wav_extract_lane
+    return: int16_t
+    params:
+    - name: v
+      type: wav_i16x8_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+- name: i16x8.extract_lane_u
+  opcode: 0x19
+  return: i32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx8
+  intrin:
+  - name: wasm_u16x8_extract_lane
+    return: unsigned int
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+  wav:
+  - name: wav_u16x8_extract_lane
+    alias:
+    - wav_extract_lane
+    return: uint16_t
+    params:
+    - name: v
+      type: wav_u16x8_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+- name: i32x4.extract_lane
+  opcode: 0x1b
+  return: i32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  intrin:
+  - name: wasm_i32x4_extract_lane
+    return: int
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  wav:
+  - name: wav_i32x4_extract_lane
+    alias:
+    - wav_extract_lane
+    return: int32_t
+    params:
+    - name: v
+      type: wav_i32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  - name: wav_u32x4_extract_lane
+    alias:
+    - wav_extract_lane
+    return: uint32_t
+    params:
+    - name: v
+      type: wav_u32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+- name: i64x2.extract_lane
+  opcode: 0x1d
+  return: i64
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  intrin:
+  - name: wasm_i64x2_extract_lane
+    return: int64_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  wav:
+  - name: wav_i64x2_extract_lane
+    alias:
+    - wav_extract_lane
+    return: int64_t
+    params:
+    - name: v
+      type: wav_i64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  - name: wav_u64x2_extract_lane
+    alias:
+    - wav_extract_lane
+    return: uint64_t
+    params:
+    - name: v
+      type: wav_u64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+- name: f32x4.extract_lane
+  opcode: 0x1f
+  return: f32
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  intrin:
+  - name: wasm_f32x4_extract_lane
+    return: float
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  wav:
+  - name: wav_f32x4_extract_lane
+    alias:
+    - wav_extract_lane
+    return: float
+    params:
+    - name: v
+      type: wav_f32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+- name: f64x2.extract_lane
+  opcode: 0x21
+  return: f64
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  intrin:
+  - name: wasm_f64x2_extract_lane
+    return: double
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  wav:
+  - name: wav_f64x2_extract_lane
+    alias:
+    - wav_extract_lane
+    return: double
+    params:
+    - name: v
+      type: wav_f64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
