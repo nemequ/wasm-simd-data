@@ -7,10 +7,10 @@ description: >-
 instructions:
 - name: v128.const
   opcode: 0x0c
+  return: v128
   params:
   - name: imm
     type: ImmByte[16]
-  return: v128
   intrin:
   - name: wasm_i8x16_const
     return: v128_t

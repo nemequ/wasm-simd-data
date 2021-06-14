@@ -37,6 +37,10 @@ The opcode of the instruction.  See
 https://github.com/WebAssembly/simd/blob/main/proposals/simd/NewOpcodes.md
 for the list.
 
+### return
+
+Type of the return value.
+
 ### params
 
 List of parameters for the instruction

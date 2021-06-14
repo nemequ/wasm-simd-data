@@ -8,6 +8,8 @@ operation: |
 instructions:
 - name: v128.load
   opcode: 0x00
+  return: v128
+
   params:
   - name: memarg
     type: "*"

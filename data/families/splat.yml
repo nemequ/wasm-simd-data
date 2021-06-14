@@ -11,6 +11,7 @@ instructions:
 
 - name: i8x16.splat
   opcode: 0x0f
+  return: v128
   params:
   - name: x
     type: i32
@@ -41,6 +42,7 @@ instructions:
 
 - name: i16x8.splat
   opcode: 0x10
+  return: v128
   params:
   - name: x
     type: i32
@@ -69,6 +71,7 @@ instructions:
 
 - name: i32x4.splat
   opcode: 0x11
+  return: v128
   params:
   - name: x
     type: i32
@@ -97,6 +100,7 @@ instructions:
 
 - name: i64x2.splat
   opcode: 0x12
+  return: v128
   params:
   - name: x
     type: i64
@@ -127,6 +131,7 @@ instructions:
 
 - name: f32x4.splat
   opcode: 0x13
+  return: v128
   params:
   - name: x
     type: f32
@@ -148,6 +153,7 @@ instructions:
 
 - name: f64x2.splat
   opcode: 0x14
+  return: v128
   params:
   - name: x
     type: f64
