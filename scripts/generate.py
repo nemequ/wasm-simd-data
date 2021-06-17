@@ -26,7 +26,11 @@ for family_name in families.keys():
   for inst in family["instructions"]:
     for target in targets:
       with open(os.path.join(os.path.dirname(__file__), "..", "lowering", "out", '.'.join([ inst['name'], target['name'], 'json' ])), 'r') as fp:
-        inst['lowering'] = json.load(fp)
+        data = json.load(fp)
+        if 'lowering' in inst:
+          inst['lowering'] = inst['lowering'] + data
+        else:
+          inst['lowering'] = data
 
 
 json.dump(families, sys.stdout, indent = 2)
