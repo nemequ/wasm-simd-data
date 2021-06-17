@@ -9,6 +9,8 @@
 - name: x86_64
   triple: x86_64-unknown-linux-gnu
   return_insn: retq
+  imm_syntax:
+  - '^(\$)(?P<value>[0-9]+)$'
   analysis_cpu: icelake-server
   options:
   - name: base
@@ -48,6 +50,8 @@
 - name: AArch64
   triple: aarch64-linux-gnu
   return_insn: ret
+  imm_syntax:
+  - '^(v[0-9]\.[bhsd]\[)(?P<value>[0-9]+)(\].*)$'
   analysis_cpu: apple-latest
   options:
   - name: armv8-a
