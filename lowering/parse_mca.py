@@ -171,8 +171,51 @@ class ImplementationList:
 
     return impls
 
+  # Now we want to replace the immediate arguments with a map of their
+  # possible values depending on the immediate.  If the immediate
+  # itself is the value (as is often the case for operations on lanes)
+  # we'll just replace them with the parameter name (i.e., "imm").
   def extract(self):
-    return self.__get_merged()
+    data = self.__get_merged()
+
+    for entry in data:
+      for impl in entry['implementations']:
+        del impl['option']
+
+        if 'replacements' in impl:
+          potential_imm = {}
+
+          for replacement in impl['replacements']:
+            k = str(replacement['instruction']) + ',' + str(replacement['argument'])
+            if not k in potential_imm:
+              potential_imm[k] = {}
+
+            if replacement['immediate'] == replacement['value']:
+              if not replacement['immediate'] in potential_imm:
+                potential_imm[k][replacement['immediate']] = True
+            else:
+              if not replacement['immediate'] in potential_imm:
+                potential_imm[k][replacement['immediate']] = False
+
+          for pos in potential_imm.keys():
+            posa = pos.split(',')
+            insn_n = int(posa[0])
+            arg_n = int(posa[1])
+
+          if False in potential_imm[pos].values():
+            args = []
+            for replacement in impl['replacements']:
+              args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
+            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
+          else:
+            # TODO: assumes immediate is named imm, which IIRC is
+            # always true in the in the WASM SIMD spec, but we should
+            # probably not assume.
+            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
+
+          del impl['replacements']
+
+    return data
 
 def read_mca(insn_name, target_name):
   family = None
