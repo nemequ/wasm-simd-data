@@ -1,0 +1,356 @@
+title: 
+description: >-
+  Return a new vector with lanes identical to `a`, except for the lane
+  specified in the immediate mode operand `imm` which has the value
+  `x`. The `{interpretation}.replace_lane` instructions are encoded
+  with an immediate byte providing the index of the lane the value
+  of which is to be replaced.
+
+  The input lane value, x, is interpreted the same way as for the splat
+  instructions. For the i8 and i16 lanes, the high bits of x are ignored.
+operation: |
+  def S.replace_lane(a, i, x):
+    result = S.New()
+    for j in range(S.Lanes):
+        result[j] = a[j]
+    result[i] = x
+    return result
+instructions:
+
+- name: i8x16.replace_lane
+  opcode: 0x17
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx16
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i8x16_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+    - name: __b
+      type: int
+      map: x
+  wav:
+  - name: wav_i8x16_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_i8x16_t
+    params:
+    - name: v
+      type: wav_i8x16_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+    - name: value
+      type: int8_t
+      map: x
+  - name: wav_u8x16_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_u8x16_t
+    params:
+    - name: v
+      type: wav_u8x16_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+    - name: value
+      type: uint8_t
+      map: x
+
+- name: i16x8.replace_lane
+  opcode: 0x1a
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx8
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i16x8_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+    - name: __b
+      type: int
+      map: x
+  wav:
+  - name: wav_i16x8_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_i16x8_t
+    params:
+    - name: v
+      type: wav_i16x8_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+    - name: value
+      type: int16_t
+      map: x
+  - name: wav_u16x8_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_u16x8_t
+    params:
+    - name: v
+      type: wav_u16x8_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+    - name: value
+      type: uint16_t
+      map: x
+
+- name: i32x4.replace_lane
+  opcode: 0x1c
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i32x4_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+    - name: __b
+      type: int
+      map: x
+  wav:
+  - name: wav_i32x4_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_i32x4_t
+    params:
+    - name: v
+      type: wav_i32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+    - name: value
+      type: int32_t
+      map: x
+  - name: wav_u32x4_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_u32x4_t
+    params:
+    - name: v
+      type: wav_u32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+    - name: value
+      type: uint32_t
+      map: x
+
+- name: i64x2.replace_lane
+  opcode: 0x1e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  - name: x
+    type: i32
+  intrin:
+  - name: wasm_i64x2_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+    - name: __b
+      type: int64_t
+      map: x
+  wav:
+  - name: wav_i64x2_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_i64x2_t
+    params:
+    - name: v
+      type: wav_i64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+    - name: value
+      type: int64_t
+      map: x
+  - name: wav_u64x2_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_u64x2_t
+    params:
+    - name: v
+      type: wav_u64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+    - name: value
+      type: uint64_t
+      map: x
+
+- name: f32x4.replace_lane
+  opcode: 0x20
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  - name: x
+    type: f32
+  intrin:
+  - name: wasm_f32x4_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+    - name: __b
+      type: int
+      map: x
+  wav:
+  - name: wav_f32x4_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_f32x4_t
+    params:
+    - name: v
+      type: wav_f32x4_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+    - name: value
+      type: float
+      map: x
+
+- name: f64x2.replace_lane
+  opcode: 0x22
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  - name: x
+    type: f32
+  intrin:
+  - name: wasm_f64x2_replace_lane
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __i
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+    - name: __b
+      type: double
+      map: x
+  wav:
+  - name: wav_f64x2_replace_lane
+    alias:
+    - wav_replace_lane
+    return: wav_f64x2_t
+    params:
+    - name: v
+      type: wav_f64x2_t
+      map: a
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+    - name: value
+      type: double
+      map: x
