@@ -202,16 +202,16 @@ class ImplementationList:
             insn_n = int(posa[0])
             arg_n = int(posa[1])
 
-          if False in potential_imm[pos].values():
-            args = []
-            for replacement in impl['replacements']:
-              args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
-            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
-          else:
-            # TODO: assumes immediate is named imm, which IIRC is
-            # always true in the in the WASM SIMD spec, but we should
-            # probably not assume.
-            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
+            if False in potential_imm[pos].values():
+              args = []
+              for replacement in impl['replacements']:
+                args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
+              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
+            else:
+              # TODO: assumes immediate is named imm, which IIRC is
+              # always true in the in the WASM SIMD spec, but we should
+              # probably not assume.
+              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
 
           del impl['replacements']
 
