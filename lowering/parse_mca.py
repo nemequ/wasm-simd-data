@@ -183,6 +183,9 @@ class ImplementationList:
         del impl['option']
         potential_imm = {}
 
+        if len(impl['immediates']) == 1 and impl['immediates'][0] == None:
+          del impl['immediates']
+
         if not 'replacements' in impl:
           continue
 
@@ -222,9 +225,6 @@ class ImplementationList:
             # always true in the in the WASM SIMD spec, but we should
             # probably not assume.
             impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
-
-        if len(impl['immediates']) == 1 and impl['immediates'][0] == None:
-          del impl['immediates']
 
         if 'replacements' in impl:
           del impl['replacements']
