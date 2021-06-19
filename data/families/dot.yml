@@ -1,0 +1,36 @@
+title: Integer dot product
+description: >-
+  Lane-wise multiply signed 16-bit integers in the two input vectors
+  and add adjacent pairs of the full 32-bit results.
+instructions:
+
+- name: i32x4.dot_i16x8_s
+  opcode: 0xba
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_dot_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_dot
+    alias:
+    - wav_dot
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
