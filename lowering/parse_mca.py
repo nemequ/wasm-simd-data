@@ -156,7 +156,7 @@ class ImplementationList:
           }
 
           by_opt[impl['option']].append(map[impl['serialized']])
-        
+
         map[impl['serialized']]['immediates'].append(imm)
         if 'replacements' in impl:
           if not 'replacements' in map[impl['serialized']]:
@@ -181,38 +181,47 @@ class ImplementationList:
     for entry in data:
       for impl in entry['implementations']:
         del impl['option']
+        potential_imm = {}
+
+        if not 'replacements' in impl:
+          continue
+
+        for replacement in impl['replacements']:
+          k = str(replacement['instruction']) + ',' + str(replacement['argument'])
+          if not k in potential_imm:
+            potential_imm[k] = {}
+
+          if replacement['immediate'] == replacement['value']:
+            if not replacement['immediate'] in potential_imm:
+              potential_imm[k][replacement['immediate']] = True
+          else:
+            if not replacement['immediate'] in potential_imm:
+              potential_imm[k][replacement['immediate']] = False
+
+        for pos in potential_imm.keys():
+          posa = pos.split(',')
+          insn_n = int(posa[0])
+          arg_n = int(posa[1])
+
+          if False in potential_imm[pos].values():
+            # The value isn't the same as the immediate parameter
+            args = []
+            for replacement in impl['replacements']:
+              if replacement['instruction'] == insn_n and replacement['argument'] == arg_n:
+                args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
+
+            if len(args) == 1:
+              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', args[0].split(' ')[1])
+            else:
+              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
+
+          else:
+            # TODO: assumes immediate is named imm, which IIRC is
+            # always true in the in the WASM SIMD spec, but we should
+            # probably not assume.
+            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
 
         if 'replacements' in impl:
-          potential_imm = {}
-
-          for replacement in impl['replacements']:
-            k = str(replacement['instruction']) + ',' + str(replacement['argument'])
-            if not k in potential_imm:
-              potential_imm[k] = {}
-
-            if replacement['immediate'] == replacement['value']:
-              if not replacement['immediate'] in potential_imm:
-                potential_imm[k][replacement['immediate']] = True
-            else:
-              if not replacement['immediate'] in potential_imm:
-                potential_imm[k][replacement['immediate']] = False
-
-          for pos in potential_imm.keys():
-            posa = pos.split(',')
-            insn_n = int(posa[0])
-            arg_n = int(posa[1])
-
-            if False in potential_imm[pos].values():
-              args = []
-              for replacement in impl['replacements']:
-                args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
-              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
-            else:
-              # TODO: assumes immediate is named imm, which IIRC is
-              # always true in the in the WASM SIMD spec, but we should
-              # probably not assume.
-              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
-
           del impl['replacements']
 
     return data
