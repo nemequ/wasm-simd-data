@@ -221,6 +221,9 @@ class ImplementationList:
             # probably not assume.
             impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
 
+        if len(impl['immediates']) == 1 and impl['immediates'][0] == None:
+          del impl['immediates']
+
         if 'replacements' in impl:
           del impl['replacements']
 
