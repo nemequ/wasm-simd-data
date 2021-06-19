@@ -79,7 +79,8 @@ for family_name in families.keys():
       json_file = generate_outfile([instruction['name'], target['name'], 'json'])
       json_files.append(json_file)
       print(json_file + ': ', end = '')
-      print(' '.join(instruction_mca_files))
+      print(' '.join(instruction_mca_files), end = '')
+      print(' parse_mca.py')
       print('\t$(PYTHON3) parse_mca.py %s %s $@\n' % (instruction['name'], target['name']))
 
 print('all-mca-json: ', end = '')
