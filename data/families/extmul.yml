@@ -1,0 +1,377 @@
+title: Extended integer multiplication
+description: >-
+  Lane-wise integer extended multiplication producing twice wider
+  result than the inputs.
+instructions:
+- name: i16x8.extmul_low_i8x16_s
+  opcode: 0x9c
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extmul_low_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i8x16_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+
+- name: i32x4.extmul_low_i16x8_s
+  opcode: 0xbc
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extmul_low_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i16x8_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+
+- name: i64x2.extmul_low_i32x4_s
+  opcode: 0xdc
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extmul_low_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i32x4_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+
+- name: i16x8.extmul_low_i8x16_u
+  opcode: 0x9e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extmul_low_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u8x16_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+
+- name: i32x4.extmul_low_i16x8_u
+  opcode: 0xbe
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extmul_low_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u16x8_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+
+- name: i64x2.extmul_low_i32x4_u
+  opcode: 0xde
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extmul_low_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u32x4_extmul_low
+    alias:
+    - wav_extmul_low
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
+
+
+- name: i16x8.extmul_high_i8x16_s
+  opcode: 0x9d
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extmul_high_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i8x16_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+
+- name: i32x4.extmul_high_i16x8_s
+  opcode: 0xbd
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extmul_high_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i16x8_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+
+- name: i64x2.extmul_high_i32x4_s
+  opcode: 0xdd
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extmul_high_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i32x4_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+
+- name: i16x8.extmul_high_i8x16_u
+  opcode: 0x9f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extmul_high_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u8x16_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+
+- name: i32x4.extmul_high_i16x8_u
+  opcode: 0xbf
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extmul_high_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u16x8_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+
+- name: i64x2.extmul_high_i32x4_u
+  opcode: 0xdf
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extmul_high_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_u32x4_extmul_high
+    alias:
+    - wav_extmul_high
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
