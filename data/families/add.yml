@@ -1,0 +1,177 @@
+title: Integer addition
+description: >-
+  Lane-wise wrapping integer addition.
+operation: |
+  def S.add(a, b):
+      def add(x, y):
+          return S.Reduce(x + y)
+      return S.lanewise_binary(add, a, b)
+instructions:
+
+- name: i8x16.add
+  opcode: 0x6e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_add
+    alias:
+    - wav_add
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+  - name: wav_u8x16_add
+    alias:
+    - wav_add
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+
+- name: i16x8.add
+  opcode: 0x8e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_add
+    alias:
+    - wav_add
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+  - name: wav_u16x8_add
+    alias:
+    - wav_add
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+
+- name: i32x4.add
+  opcode: 0xae
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_add
+    alias:
+    - wav_add
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+  - name: wav_u32x4_add
+    alias:
+    - wav_add
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
+
+- name: i64x2.add
+  opcode: 0xce
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i64x2_add
+    alias:
+    - wav_add
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i64x2_t
+      map: a
+    - name: b
+      type: wav_i64x2_t
+      map: b
+  - name: wav_u64x2_add
+    alias:
+    - wav_add
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u64x2_t
+      map: a
+    - name: b
+      type: wav_u64x2_t
+      map: b
