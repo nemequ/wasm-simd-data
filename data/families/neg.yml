@@ -1,0 +1,103 @@
+title: Integer negition
+description: >-
+  Lane-wise wrapping integer negation. In wrapping arithmetic, `y = -x`
+  is the unique value such that `x + y == 0`.
+operation: |
+  def S.neg(a):
+      def neg(x):
+          return S.Reduce(-x)
+      return S.lanewise_unary(neg, a)
+instructions:
+
+- name: i8x16.neg
+  opcode: 0x61
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i8x16_neg
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_neg
+    alias:
+    - wav_neg
+    return: wav_i8x16_t
+    params:
+    - name: vec
+      type: wav_i8x16_t
+      map: a
+
+- name: i16x8.neg
+  opcode: 0x81
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_neg
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_neg
+    alias:
+    - wav_neg
+    return: wav_i16x8_t
+    params:
+    - name: vec
+      type: wav_i16x8_t
+      map: a
+
+- name: i32x4.neg
+  opcode: 0xa1
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_neg
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_neg
+    alias:
+    - wav_neg
+    return: wav_i32x4_t
+    params:
+    - name: vec
+      type: wav_i32x4_t
+      map: a
+
+- name: i64x2.neg
+  opcode: 0xc1
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_neg
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i64x2_neg
+    alias:
+    - wav_neg
+    return: wav_i64x2_t
+    params:
+    - name: vec
+      type: wav_i64x2_t
+      map: a
+
