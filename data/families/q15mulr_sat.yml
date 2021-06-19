@@ -1,0 +1,35 @@
+title: Saturating integer Q-format rounding multiplication
+description: >-
+  Lane-wise saturating rounding multiplication in Q15 format.
+instructions:
+
+- name: i16x8.q15mulr_sat_s
+  opcode: 0x82
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_q15mulr_sat
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_q15mulr_sat
+    alias:
+    - wav_q15mulr_sat
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
