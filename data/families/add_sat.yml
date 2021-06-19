@@ -1,0 +1,128 @@
+title: Saturating integer addition
+description: >-
+  Lane-wise saturating addition.
+instructions:
+
+- name: i8x16.add_sat_s
+  opcode: 0x6f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_add_sat
+    alias:
+    - wav_add_sat
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+
+- name: i16x8.add_sat_s
+  opcode: 0x8f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_add_sat
+    alias:
+    - wav_add_sat
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+
+- name: i8x16.add_sat_u
+  opcode: 0x70
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u8x16_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u8x16_add_sat
+    alias:
+    - wav_add_sat
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+
+- name: i16x8.add_sat_u
+  opcode: 0x90
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u16x8_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u16x8_add_sat
+    alias:
+    - wav_add_sat
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b

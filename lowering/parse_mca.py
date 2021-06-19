@@ -250,8 +250,10 @@ def read_mca(insn_name, target_name):
           instruction = inst
           break
 
-      break
+      if instruction != None:
+        break
   assert family != None
+  assert instruction != None
 
   for tgt in targets:
     if tgt['name'] == target_name:
