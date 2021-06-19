@@ -1,0 +1,58 @@
+title: Swizzling using variable indices
+description: >-
+  Returns a new vector with lanes selected from the lanes of the first
+  input vector `a` specified in the second input vector `s`. The
+  indices `i` in range `[0, 15]` select the `i`-th element of `a`. For
+  indices outside of the range the resulting lane is initialized to 0.
+operation: |
+  def S.swizzle(a, s):
+      result = S.New()
+      for i in range(S.Lanes):
+          if s[i] < S.lanes:
+              result[i] = a[s[i]]
+          else:
+              result[i] = 0
+      return result
+instructions:
+
+- name: i8x16.swizzle
+  opcode: 0x0e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: s
+    type: v128
+  intrin:
+  - name: wasm_i8x16_swizzle
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: s
+  wav:
+  - name: wav_i8x16_swizzle
+    alias:
+    - wav_swizzle
+    return: wav_i8x16_t
+    params:
+    - name: data
+      type: wav_i8x16_t
+      map: a
+    - name: idx
+      type: wav_i8x16_t
+      map: s
+  - name: wav_u8x16_swizzle
+    alias:
+    - wav_swizzle
+    return: wav_u8x16_t
+    params:
+    - name: data
+      type: wav_u8x16_t
+      map: a
+    - name: idx
+      type: wav_u8x16_t
+      map: s
