@@ -1,4 +1,4 @@
-title: 
+title: Replace lane value
 description: >-
   Return a new vector with lanes identical to `a`, except for the lane
   specified in the immediate mode operand `imm` which has the value
