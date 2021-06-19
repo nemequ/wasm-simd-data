@@ -206,12 +206,14 @@ class ImplementationList:
           if False in potential_imm[pos].values():
             # The value isn't the same as the immediate parameter
             args = []
+            replacement_values = []
             for replacement in impl['replacements']:
               if replacement['instruction'] == insn_n and replacement['argument'] == arg_n:
+                replacement_values.append(replacement['value'])
                 args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
 
-            if len(args) == 1:
-              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', args[0].split(' ')[1])
+            if len(list(set(replacement_values))) == 1:
+              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', str(replacement_values[0]))
             else:
               impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
 
