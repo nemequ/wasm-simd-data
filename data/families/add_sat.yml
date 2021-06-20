@@ -12,7 +12,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_i8x16_add
+  - name: wasm_i8x16_add_sat
     return: v128_t
     params:
     - name: __a
@@ -43,7 +43,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_i16x8_add
+  - name: wasm_i16x8_add_sat
     return: v128_t
     params:
     - name: __a
@@ -74,7 +74,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u8x16_add
+  - name: wasm_u8x16_add_sat
     return: v128_t
     params:
     - name: __a
@@ -105,7 +105,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u16x8_add
+  - name: wasm_u16x8_add_sat
     return: v128_t
     params:
     - name: __a
