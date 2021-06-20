@@ -1,0 +1,191 @@
+title: Lane-wise integer maximum
+description: >-
+  Compares lane-wise signed/unsigned integers, and returns the maximum
+  of each pair.
+instructions:
+
+- name: i8x16.max_s
+  opcode: 0x78
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_max
+    alias:
+    - wav_max
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+
+- name: i16x8.max_s
+  opcode: 0x98
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_max
+    alias:
+    - wav_max
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+
+- name: i32x4.max_s
+  opcode: 0xb8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_max
+    alias:
+    - wav_max
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+
+- name: i8x16.max_u
+  opcode: 0x79
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_max
+    alias:
+    - wav_max
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+
+- name: i16x8.max_u
+  opcode: 0x99
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_max
+    alias:
+    - wav_max
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+
+- name: i32x4.max_u
+  opcode: 0xb9
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_max
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_max
+    alias:
+    - wav_max
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
