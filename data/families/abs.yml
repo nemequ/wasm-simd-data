@@ -1,0 +1,97 @@
+title: Lane-wise integer absolute value
+description: >-
+  Lane-wise wrapping absolute value.
+instructions:
+
+- name: i8x16.abs
+  opcode: 0x60
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i8x16_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_abs
+    alias:
+    - wav_abs
+    return: wav_i8x16_t
+    params:
+    - name: vec
+      type: wav_i8x16_t
+      map: a
+
+- name: i16x8.abs
+  opcode: 0x80
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_abs
+    alias:
+    - wav_abs
+    return: wav_i16x8_t
+    params:
+    - name: vec
+      type: wav_i16x8_t
+      map: a
+
+- name: i32x4.abs
+  opcode: 0xa0
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_abs
+    alias:
+    - wav_abs
+    return: wav_i32x4_t
+    params:
+    - name: vec
+      type: wav_i32x4_t
+      map: a
+
+- name: i64x2.abs
+  opcode: 0xc0
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i64x2_abs
+    alias:
+    - wav_abs
+    return: wav_i64x2_t
+    params:
+    - name: vec
+      type: wav_i64x2_t
+      map: a
+
