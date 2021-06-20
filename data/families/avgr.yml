@@ -1,0 +1,66 @@
+title: Lane-wise integer rounding average
+description: >-
+  Lane-wise rounding average.
+instructions:
+
+- name: i8x16.avgr_u
+  opcode: 0x7b
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_avgr
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_avgr
+    alias:
+    - wav_avgr
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+
+- name: i16x8.avgr_u
+  opcode: 0x9b
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u16x8_avgr
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u16x8_avgr
+    alias:
+    - wav_avgr
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
