@@ -32,5 +32,8 @@ for family_name in families.keys():
         else:
           inst['lowering'] = data
 
-
-json.dump(families, sys.stdout, indent = 2)
+if len(sys.argv) > 1:
+  with open(sys.argv[1], 'w') as outfp:
+    json.dump(families, outfp)
+else:
+  json.dump(families, sys.stdout, indent = 2)
