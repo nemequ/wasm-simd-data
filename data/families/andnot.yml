@@ -1,0 +1,376 @@
+title: Bitwise AND-NOT
+description: >-
+  Bitwise AND-NOT of two vectors.
+instructions:
+
+- name: v128.andnot
+  opcode: 0x4f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_v128_andnot
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_andnot
+    alias:
+    - wav_andnot
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+  - name: wav_i16x8_andnot
+    alias:
+    - wav_andnot
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+  - name: wav_i32x4_andnot
+    alias:
+    - wav_andnot
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+  - name: wav_i64x2_andnot
+    alias:
+    - wav_andnot
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i64x2_t
+      map: a
+    - name: b
+      type: wav_i64x2_t
+      map: b
+  - name: wav_u8x16_andnot
+    alias:
+    - wav_andnot
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+  - name: wav_u16x8_andnot
+    alias:
+    - wav_andnot
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+  - name: wav_u32x4_andnot
+    alias:
+    - wav_andnot
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
+  - name: wav_u64x2_andnot
+    alias:
+    - wav_andnot
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u64x2_t
+      map: a
+    - name: b
+      type: wav_u64x2_t
+      map: b
+  - name: wav_b8x16_andnot
+    alias:
+    - wav_andnot
+    return: wav_b8x16_t
+    params:
+    - name: a
+      type: wav_b8x16_t
+      map: a
+    - name: b
+      type: wav_b8x16_t
+      map: b
+  - name: wav_b16x8_andnot
+    alias:
+    - wav_andnot
+    return: wav_b16x8_t
+    params:
+    - name: a
+      type: wav_b16x8_t
+      map: a
+    - name: b
+      type: wav_b16x8_t
+      map: b
+  - name: wav_b32x4_andnot
+    alias:
+    - wav_andnot
+    return: wav_b32x4_t
+    params:
+    - name: a
+      type: wav_b32x4_t
+      map: a
+    - name: b
+      type: wav_b32x4_t
+      map: b
+  - name: wav_b64x2_andnot
+    alias:
+    - wav_andnot
+    return: wav_b64x2_t
+    params:
+    - name: a
+      type: wav_b64x2_t
+      map: a
+    - name: b
+      type: wav_b64x2_t
+      map: b
+  - name: wav_i8x16_andnot_b8x16
+    alias:
+    - wav_andnot
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_b8x16_t
+      map: b
+  - name: wav_i16x8_andnot_b16x8
+    alias:
+    - wav_andnot
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_b16x8_t
+      map: b
+  - name: wav_i32x4_andnot_b32x4
+    alias:
+    - wav_andnot
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_b32x4_t
+      map: b
+  - name: wav_i64x2_andnot_b64x2
+    alias:
+    - wav_andnot
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i64x2_t
+      map: a
+    - name: b
+      type: wav_b64x2_t
+      map: b
+  - name: wav_u8x16_andnot_b8x16
+    alias:
+    - wav_andnot
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_b8x16_t
+      map: b
+  - name: wav_u16x8_andnot_b16x8
+    alias:
+    - wav_andnot
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_b16x8_t
+      map: b
+  - name: wav_u32x4_andnot_b32x4
+    alias:
+    - wav_andnot
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_b32x4_t
+      map: b
+  - name: wav_u64x2_andnot_b64x2
+    alias:
+    - wav_andnot
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u64x2_t
+      map: a
+    - name: b
+      type: wav_b64x2_t
+      map: b
+  - name: wav_f32x4_andnot_b32x4
+    alias:
+    - wav_andnot
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_b32x4_t
+      map: b
+  - name: wav_f64x2_andnot_b64x2
+    alias:
+    - wav_andnot
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_b64x2_t
+      map: b
+  - name: wav_b8x16_andnot_i8x16
+    alias:
+    - wav_andnot
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_b8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+  - name: wav_b16x8_andnot_i16x8
+    alias:
+    - wav_andnot
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_b16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+  - name: wav_b32x4_andnot_i32x4
+    alias:
+    - wav_andnot
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_b32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+  - name: wav_b64x2_andnot_i64x2
+    alias:
+    - wav_andnot
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_b64x2_t
+      map: a
+    - name: b
+      type: wav_i64x2_t
+      map: b
+  - name: wav_b8x16_andnot_u8x16
+    alias:
+    - wav_andnot
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_b8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+  - name: wav_b16x8_andnot_u16x8
+    alias:
+    - wav_andnot
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_b16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+  - name: wav_b32x4_andnot_u32x4
+    alias:
+    - wav_andnot
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_b32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
+  - name: wav_b64x2_andnot_u64x2
+    alias:
+    - wav_andnot
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_b64x2_t
+      map: a
+    - name: b
+      type: wav_u64x2_t
+      map: b
+  - name: wav_b32x4_andnot_f32x4
+    alias:
+    - wav_andnot
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_b32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+  - name: wav_b64x2_andnot_f64x2
+    alias:
+    - wav_andnot
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_b64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
+      map: b
