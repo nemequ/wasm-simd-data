@@ -1,0 +1,161 @@
+title: All lanes true
+description: >-
+  These functions return 1 if all lanes in `a` are non-zero, 0
+  otherwise.
+instructions:
+
+- name: i8x16.all_true
+  opcode: 0x63
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i8x16_all_true
+    return: bool
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_i8x16_t
+      map: a
+  - name: wav_u8x16_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_u8x16_t
+      map: a
+  - name: wav_b8x16_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_b8x16_t
+      map: a
+
+- name: i16x8.all_true
+  opcode: 0x83
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_all_true
+    return: bool
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_i16x8_t
+      map: a
+  - name: wav_u16x8_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_u16x8_t
+      map: a
+  - name: wav_b16x8_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_b16x8_t
+      map: a
+
+- name: i32x4.all_true
+  opcode: 0xa3
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_all_true
+    return: bool
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_i32x4_t
+      map: a
+  - name: wav_u32x4_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_u32x4_t
+      map: a
+  - name: wav_b32x4_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_b32x4_t
+      map: a
+
+- name: i64x2.all_true
+  opcode: 0xc3
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_all_true
+    return: bool
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i64x2_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_i64x2_t
+      map: a
+  - name: wav_u64x2_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_u64x2_t
+      map: a
+  - name: wav_b64x2_all_true
+    alias:
+    - wav_all_true
+    return: bool
+    params:
+    - name: value
+      type: wav_b64x2_t
+      map: a
