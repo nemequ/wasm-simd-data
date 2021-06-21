@@ -32,6 +32,15 @@ for family_name in families.keys():
         else:
           inst['lowering'] = data
 
+# I feel like there has to be a better way…
+def sort_dict(dict):
+  res = {}
+  for k in sorted(dict):
+    res[k] = dict[k]
+  return res
+
+families = sort_dict(families)
+
 if len(sys.argv) > 1:
   with open(sys.argv[1], 'w') as outfp:
     json.dump(families, outfp)
