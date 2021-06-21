@@ -1,0 +1,257 @@
+title: Inequality
+description: >-
+  Test each element for inequality; the result is all zeros for false
+  or all ones for true.
+instructions:
+
+- name: i8x16.ne
+  opcode: 0x24
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_ne
+    alias:
+    - wav_ne
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_i8x16_t
+      map: a
+    - name: rhs
+      type: wav_i8x16_t
+      map: b
+  - name: wav_u8x16_ne
+    alias:
+    - wav_ne
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_u8x16_t
+      map: a
+    - name: rhs
+      type: wav_u8x16_t
+      map: b
+
+- name: i16x8.ne
+  opcode: 0x2e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_ne
+    alias:
+    - wav_ne
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_i16x8_t
+      map: a
+    - name: rhs
+      type: wav_i16x8_t
+      map: b
+  - name: wav_u16x8_ne
+    alias:
+    - wav_ne
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_u16x8_t
+      map: a
+    - name: rhs
+      type: wav_u16x8_t
+      map: b
+
+- name: i32x4.ne
+  opcode: 0x38
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_ne
+    alias:
+    - wav_ne
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_i32x4_t
+      map: a
+    - name: rhs
+      type: wav_i32x4_t
+      map: b
+  - name: wav_u32x4_ne
+    alias:
+    - wav_ne
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_u32x4_t
+      map: a
+    - name: rhs
+      type: wav_u32x4_t
+      map: b
+
+- name: i64x2.ne
+  opcode: 0xd7
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i64x2_ne
+    alias:
+    - wav_ne
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_i64x2_t
+      map: a
+    - name: rhs
+      type: wav_i64x2_t
+      map: b
+  - name: wav_u64x2_ne
+    alias:
+    - wav_ne
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_u64x2_t
+      map: a
+    - name: rhs
+      type: wav_u64x2_t
+      map: b
+
+- name: f32x4.ne
+  opcode: 0x42
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_ne
+    alias:
+    - wav_ne
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_f32x4_t
+      map: a
+    - name: rhs
+      type: wav_f32x4_t
+      map: b
+  - name: wav_u32x4_ne
+    alias:
+    - wav_ne
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_u32x4_t
+      map: a
+    - name: rhs
+      type: wav_u32x4_t
+      map: b
+
+- name: f64x2.ne
+  opcode: 0x48
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_ne
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_ne
+    alias:
+    - wav_ne
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_f64x2_t
+      map: a
+    - name: rhs
+      type: wav_f64x2_t
+      map: b
+  - name: wav_u64x2_ne
+    alias:
+    - wav_ne
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_u64x2_t
+      map: a
+    - name: rhs
+      type: wav_u64x2_t
+      map: b
