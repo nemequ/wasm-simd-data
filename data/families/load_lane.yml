@@ -1,0 +1,244 @@
+title: Load Lane
+description: >-
+  Load a single element from memory into the specified lane.
+
+instructions:
+- name: v128.load8_lane
+  opcode: 0x54
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: x
+    type: v128
+  - name: imm
+    type: ImmLaneIdx16
+  intrin:
+  - name: wasm_v128_load8_lane
+    return: v128_t
+    params:
+    - name: __ptr
+      type: const void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: x
+    - name: __i
+      type: int
+      map: imm
+  wav:
+  - name: wav_i8x16_load_lane
+    return: wav_i8x16_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_i8x16_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const int8_t *
+      map: memarg
+  - name: wav_u8x16_load
+    return: wav_u8x16_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_u8x16_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const uint8_t *
+      map: memarg
+
+- name: v128.load16_lane
+  opcode: 0x55
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: x
+    type: v128
+  - name: imm
+    type: ImmLaneIdx8
+  intrin:
+  - name: wasm_v128_load16_lane
+    return: v128_t
+    params:
+    - name: __ptr
+      type: const void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: x
+    - name: __i
+      type: int
+      map: imm
+  wav:
+  - name: wav_i16x8_load_lane
+    return: wav_i16x8_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_i16x8_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const int16_t *
+      map: memarg
+  - name: wav_u16x8_load
+    return: wav_u16x8_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_u16x8_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const uint16_t *
+      map: memarg
+
+- name: v128.load32_lane
+  opcode: 0x56
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: x
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  intrin:
+  - name: wasm_v128_load32_lane
+    return: v128_t
+    params:
+    - name: __ptr
+      type: const void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: x
+    - name: __i
+      type: int
+      map: imm
+  wav:
+  - name: wav_i32x4_load_lane
+    return: wav_i32x4_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_i32x4_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const int32_t *
+      map: memarg
+  - name: wav_u32x4_load
+    return: wav_u32x4_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_u32x4_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const uint32_t *
+      map: memarg
+  - name: wav_f32x4_load
+    return: wav_f32x4_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_f32x4_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const float *
+      map: memarg
+
+- name: v128.load64_lane
+  opcode: 0x57
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: x
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  intrin:
+  - name: wasm_v128_load64_lane
+    return: v128_t
+    params:
+    - name: __ptr
+      type: const void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: x
+    - name: __i
+      type: int
+      map: imm
+  wav:
+  - name: wav_i64x2_load_lane
+    return: wav_i64x2_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_i64x2_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const int64_t *
+      map: memarg
+  - name: wav_u64x2_load
+    return: wav_u64x2_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_u64x2_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const uint64_t *
+      map: memarg
+  - name: wav_f64x2_load
+    return: wav_f64x2_t
+    alias:
+    - wav_load_lane
+    params:
+    - name: v
+      type: wav_f64x2_t
+      map: x
+    - name: lane
+      type: int
+      map: imm
+    - name: src
+      type: const double *
+      map: memarg
