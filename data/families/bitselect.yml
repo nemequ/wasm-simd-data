@@ -1,0 +1,171 @@
+title: Bitwise select
+description: >-
+  Select bits from one of two input vectors according to the value of
+  the corresponding bit in a third vector.
+instructions:
+
+- name: v128.bitselect
+  opcode: 0x4f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  - name: c
+    type: v128
+  intrin:
+  - name: wasm_v128_bitselect
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+    - name: __c
+      type: v128_t
+      map: c
+  wav:
+  - name: wav_i8x16_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_i8x16_t
+    params:
+    - name: control
+      type: wav_b8x16_t
+      map: c
+    - name: when_set
+      type: wav_i8x16_t
+      map: a
+    - name: when_unset
+      type: wav_i8x16_t
+      map: b
+  - name: wav_i16x8_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_i16x8_t
+    params:
+    - name: control
+      type: wav_b16x8_t
+      map: c
+    - name: when_set
+      type: wav_i16x8_t
+      map: a
+    - name: when_unset
+      type: wav_i16x8_t
+      map: b
+  - name: wav_i32x4_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_i32x4_t
+    params:
+    - name: control
+      type: wav_b32x4_t
+      map: c
+    - name: when_set
+      type: wav_i32x4_t
+      map: a
+    - name: when_unset
+      type: wav_i32x4_t
+      map: b
+  - name: wav_i64x2_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_i64x2_t
+    params:
+    - name: control
+      type: wav_b64x2_t
+      map: c
+    - name: when_set
+      type: wav_i64x2_t
+      map: a
+    - name: when_unset
+      type: wav_i64x2_t
+      map: b
+  - name: wav_u8x16_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u8x16_t
+    params:
+    - name: control
+      type: wav_b8x16_t
+      map: c
+    - name: when_set
+      type: wav_u8x16_t
+      map: a
+    - name: when_unset
+      type: wav_u8x16_t
+      map: b
+  - name: wav_u16x8_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u16x8_t
+    params:
+    - name: control
+      type: wav_b16x8_t
+      map: c
+    - name: when_set
+      type: wav_u16x8_t
+      map: a
+    - name: when_unset
+      type: wav_u16x8_t
+      map: b
+  - name: wav_u32x4_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u32x4_t
+    params:
+    - name: control
+      type: wav_b32x4_t
+      map: c
+    - name: when_set
+      type: wav_u32x4_t
+      map: a
+    - name: when_unset
+      type: wav_u32x4_t
+      map: b
+  - name: wav_u64x2_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u64x2_t
+    params:
+    - name: control
+      type: wav_b64x2_t
+      map: c
+    - name: when_set
+      type: wav_u64x2_t
+      map: a
+    - name: when_unset
+      type: wav_u64x2_t
+      map: b
+
+  - name: wav_f32x4_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u32x4_t
+    params:
+    - name: control
+      type: wav_b32x4_t
+      map: c
+    - name: when_set
+      type: wav_f32x4_t
+      map: a
+    - name: when_unset
+      type: wav_f32x4_t
+      map: b
+  - name: wav_f64x2_bitselect
+    alias:
+    - wav_bitselect
+    return: wav_u64x2_t
+    params:
+    - name: control
+      type: wav_b64x2_t
+      map: c
+    - name: when_set
+      type: wav_f64x2_t
+      map: a
+    - name: when_unset
+      type: wav_f64x2_t
+      map: b
