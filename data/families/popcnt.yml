@@ -1,0 +1,27 @@
+title: Lane-wise Population Count
+description: >-
+  Count the number of bits set to one within each lane.
+instructions:
+
+- name: i8x16.popcnt
+  opcode: 0x62
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i8x16_popcnt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_popcnt
+    alias:
+    - wav_popcnt
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a

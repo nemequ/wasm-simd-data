@@ -47,6 +47,8 @@
     flags: -mavx512vl
   - name: AVX-512BW+AVX-512VL
     flags: -mavx512bw -mavx512vl
+  - name: AVX-512BITALG+AVX-512VL
+    flags: -mavx512bitalg -mavx512vl
 - name: AArch64
   triple: aarch64-linux-gnu
   return_insn: ret
