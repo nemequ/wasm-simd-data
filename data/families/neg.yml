@@ -1,4 +1,4 @@
-title: Integer negition
+title: Integer negation
 description: >-
   Lane-wise wrapping integer negation. In wrapping arithmetic, `y = -x`
   is the unique value such that `x + y == 0`.
