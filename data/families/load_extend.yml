@@ -1,0 +1,150 @@
+title: Load and Extend
+description: >-
+  Load 64-bits of integers and extend each element.
+
+instructions:
+- name: v128.load8x8_s
+  opcode: 0x01
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_v128_load8x8
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wasm_i16x8_load8x8
+    return: wav_i16x8_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int8_t[8]
+      map: m
+      alignment: 
+- name: v128.load16x4_s
+  opcode: 0x03
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_i32x4_load16x4
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wav_i32x4_load_extend
+    return: wav_i32x4_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int16_t[4]
+      map: m
+      alignment: 8
+- name: v128.load32x2_s
+  opcode: 0x05
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_i64x2_load32x2
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wav_i64x2_load_extend
+    return: wav_i64x2_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int32_t[2]
+      map: m
+      alignment: 8
+
+- name: v128.load8x8_u
+  opcode: 0x02
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_u16x8_load8x8
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wav_u16x8_load_extend
+    return: wav_u16x8_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int8_t[8]
+      map: m
+      alignment: 8
+- name: v128.load16x4_u
+  opcode: 0x04
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_u32x4_load16x4
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wav_u32x4_load_extend
+    return: wav_u32x4_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int16_t[4]
+      map: m
+      alignment: 8
+- name: v128.load32x2_u
+  opcode: 0x06
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_u64x2_load32x2
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+      alignment: 8
+  wav:
+  - name: wav_u64x2_load_extend
+    return: wav_u64x2_t
+    alias:
+    - wav_load_extend
+    params:
+    - name: src
+      type: int32_t[2]
+      map: m
+      alignment: 8
