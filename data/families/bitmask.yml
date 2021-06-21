@@ -1,0 +1,161 @@
+title: Bitmask extraction
+description: >-
+  These operations extract the high bit for each lane in `a` and
+  produce a scalar mask with all bits concatenated.
+instructions:
+
+- name: i8x16.bitmask
+  opcode: 0x64
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i8x16_bitmask
+    return: int32_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_i8x16_t
+      map: a
+  - name: wav_u8x16_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_u8x16_t
+      map: a
+  - name: wav_b8x16_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_b8x16_t
+      map: a
+
+- name: i16x8.bitmask
+  opcode: 0x84
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_bitmask
+    return: int32_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_i16x8_t
+      map: a
+  - name: wav_u16x8_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_u16x8_t
+      map: a
+  - name: wav_b16x8_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_b16x8_t
+      map: a
+
+- name: i32x4.bitmask
+  opcode: 0xa4
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_bitmask
+    return: int32_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_i32x4_t
+      map: a
+  - name: wav_u32x4_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_u32x4_t
+      map: a
+  - name: wav_b32x4_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_b32x4_t
+      map: a
+
+- name: i64x2.bitmask
+  opcode: 0xc4
+  return: i32
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_bitmask
+    return: int32_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i64x2_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_i64x2_t
+      map: a
+  - name: wav_u64x2_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_u64x2_t
+      map: a
+  - name: wav_b64x2_bitmask
+    alias:
+    - wav_bitmask
+    return: unsigned int
+    params:
+    - name: value
+      type: wav_b64x2_t
+      map: a
