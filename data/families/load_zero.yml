@@ -1,0 +1,85 @@
+title: Load and Zero-Pad
+description: >-
+  Load a single element into the low bits of a vector, zero the
+  remaining bits.
+
+instructions:
+- name: v128.load32_zero
+  opcode: 0x5c
+  return: v128
+  params:
+  - name: memarg
+    type: "*"
+  intrin:
+  - name: wasm_v128_load
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: memarg
+      alignment: 1
+  wav:
+  - name: wav_i32x4_load
+    return: wav_i32x4_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const int32_t *
+      map: memarg
+  - name: wav_u32x4_load
+    return: wav_u32x4_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const uint32_t *
+      map: memarg
+  - name: wav_f32x4_load
+    return: wav_f32x4_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const float *
+      map: memarg
+
+- name: v128.load64_zero
+  opcode: 0x5d
+  return: v128
+  params:
+  - name: memarg
+    type: "*"
+  intrin:
+  - name: wasm_v128_load
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: memarg
+      alignment: 1
+  wav:
+  - name: wav_i64x2_load
+    return: wav_i64x2_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const int64_t *
+      map: memarg
+  - name: wav_u64x2_load
+    return: wav_u64x2_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const uint64_t *
+      map: memarg
+  - name: wav_f64x2_load
+    return: wav_f64x2_t
+    alias:
+    - wav_load_zero
+    params:
+    - name: src
+      type: const double *
+      map: memarg

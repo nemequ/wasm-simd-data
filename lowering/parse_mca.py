@@ -242,16 +242,14 @@ def read_mca(insn_name, target_name):
   insn_split = insn_name.split('.')
 
   for family_name in families:
-    if insn_split[1].startswith(family_name):
-      family = families[family_name]
-
-      for inst in family['instructions']:
-        if inst['name'] == insn_name:
-          instruction = inst
-          break
-
-      if instruction != None:
+    for inst in families[family_name]['instructions']:
+      if inst['name'] == insn_name:
+        instruction = inst
+        family = families[family_name]
         break
+
+    if instruction != None:
+      break
   assert family != None
   assert instruction != None
 
