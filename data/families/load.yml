@@ -11,15 +11,15 @@ instructions:
   return: v128
 
   params:
-  - name: memarg
-    type: "*"
+  - name: m
+    type: memarg
   intrin:
   - name: wasm_v128_load
     return: v128_t
     params:
     - name: __mem
       type: const void *
-      map: memarg
+      map: m
       alignment: 1
   wav:
   - name: wav_i8x16_load
@@ -29,7 +29,7 @@ instructions:
     params:
     - name: src
       type: int8_t[16]
-      map: memarg
+      map: m
   - name: wav_i16x8_load
     return: wav_i16x8_t
     alias:
@@ -37,7 +37,7 @@ instructions:
     params:
     - name: src
       type: int16_t[8]
-      map: memarg
+      map: m
   - name: wav_i32x4_load
     return: wav_i32x4_t
     alias:
@@ -45,7 +45,7 @@ instructions:
     params:
     - name: src
       type: int32_t[4]
-      map: memarg
+      map: m
   - name: wav_i64x2_load
     return: wav_i64x2_t
     alias:
@@ -53,7 +53,7 @@ instructions:
     params:
     - name: src
       type: int64_t[2]
-      map: memarg
+      map: m
   - name: wav_u8x16_load
     return: wav_u8x16_t
     alias:
@@ -61,7 +61,7 @@ instructions:
     params:
     - name: src
       type: uint8_t[16]
-      map: memarg
+      map: m
   - name: wav_u16x8_load
     return: wav_u16x8_t
     alias:
@@ -69,7 +69,7 @@ instructions:
     params:
     - name: src
       type: uint16_t[8]
-      map: memarg
+      map: m
   - name: wav_u32x4_load
     return: wav_u32x4_t
     alias:
@@ -77,7 +77,7 @@ instructions:
     params:
     - name: src
       type: uint32_t[4]
-      map: memarg
+      map: m
   - name: wav_i64x2_load
     return: wav_i64x2_t
     alias:
@@ -85,7 +85,7 @@ instructions:
     params:
     - name: src
       type: int64_t[2]
-      map: memarg
+      map: m
   - name: wav_f32x4_load
     return: wav_f32x4_t
     alias:
@@ -93,7 +93,7 @@ instructions:
     params:
     - name: src
       type: float[4]
-      map: memarg
+      map: m
   - name: wav_f64x2_load
     return: wav_f64x2_t
     alias:
@@ -101,7 +101,7 @@ instructions:
     params:
     - name: src
       type: double[2]
-      map: memarg
+      map: m
 
   - name: wav_i8x16_loada
     return: wav_i8x16_t
@@ -110,7 +110,7 @@ instructions:
     params:
     - name: src
       type: int8_t[16]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_i16x8_loada
     return: wav_i16x8_t
@@ -119,7 +119,7 @@ instructions:
     params:
     - name: src
       type: int16_t[8]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_i32x4_loada
     return: wav_i32x4_t
@@ -128,7 +128,7 @@ instructions:
     params:
     - name: src
       type: int32_t[4]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_i64x2_loada
     return: wav_i64x2_t
@@ -137,7 +137,7 @@ instructions:
     params:
     - name: src
       type: int64_t[2]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_u8x16_loada
     return: wav_u8x16_t
@@ -146,7 +146,7 @@ instructions:
     params:
     - name: src
       type: uint8_t[16]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_u16x8_loada
     return: wav_u16x8_t
@@ -155,7 +155,7 @@ instructions:
     params:
     - name: src
       type: uint16_t[8]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_u32x4_loada
     return: wav_u32x4_t
@@ -164,7 +164,7 @@ instructions:
     params:
     - name: src
       type: uint32_t[4]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_i64x2_loada
     return: wav_i64x2_t
@@ -173,7 +173,7 @@ instructions:
     params:
     - name: src
       type: int64_t[2]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_f32x4_loada
     return: wav_f32x4_t
@@ -182,7 +182,7 @@ instructions:
     params:
     - name: src
       type: float[4]
-      map: memarg
+      map: m
       alignment: 16
   - name: wav_f64x2_loada
     return: wav_f64x2_t
@@ -191,7 +191,7 @@ instructions:
     params:
     - name: src
       type: double[2]
-      map: memarg
+      map: m
       alignment: 16
 
   - name: wav_i8x16_loadu
@@ -201,7 +201,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_i16x8_loadu
     return: wav_i16x8_t
@@ -210,7 +210,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_i32x4_loadu
     return: wav_i32x4_t
@@ -219,7 +219,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_i64x2_loadu
     return: wav_i64x2_t
@@ -228,7 +228,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_u8x16_loadu
     return: wav_u8x16_t
@@ -237,7 +237,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_u16x8_loadu
     return: wav_u16x8_t
@@ -246,7 +246,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_u32x4_loadu
     return: wav_u32x4_t
@@ -255,7 +255,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_i64x2_loadu
     return: wav_i64x2_t
@@ -264,7 +264,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_f32x4_loadu
     return: wav_f32x4_t
@@ -273,7 +273,7 @@ instructions:
     params:
     - name: src
       type: '*'
-      map: memarg
+      map: m
       alignment: 1
   - name: wav_f64x2_loadu
     return: wav_f64x2_t
