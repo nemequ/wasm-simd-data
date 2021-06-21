@@ -1,0 +1,257 @@
+title: Equality
+description: >-
+  Test each element for equality; the result is all zeros for false or
+  all ones for true.
+instructions:
+
+- name: i8x16.eq
+  opcode: 0x23
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_eq
+    alias:
+    - wav_eq
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_i8x16_t
+      map: a
+    - name: rhs
+      type: wav_i8x16_t
+      map: b
+  - name: wav_u8x16_eq
+    alias:
+    - wav_eq
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_u8x16_t
+      map: a
+    - name: rhs
+      type: wav_u8x16_t
+      map: b
+
+- name: i16x8.eq
+  opcode: 0x2d
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_eq
+    alias:
+    - wav_eq
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_i16x8_t
+      map: a
+    - name: rhs
+      type: wav_i16x8_t
+      map: b
+  - name: wav_u16x8_eq
+    alias:
+    - wav_eq
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_u16x8_t
+      map: a
+    - name: rhs
+      type: wav_u16x8_t
+      map: b
+
+- name: i32x4.eq
+  opcode: 0x37
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_eq
+    alias:
+    - wav_eq
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_i32x4_t
+      map: a
+    - name: rhs
+      type: wav_i32x4_t
+      map: b
+  - name: wav_u32x4_eq
+    alias:
+    - wav_eq
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_u32x4_t
+      map: a
+    - name: rhs
+      type: wav_u32x4_t
+      map: b
+
+- name: i64x2.eq
+  opcode: 0xd6
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i64x2_eq
+    alias:
+    - wav_eq
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_i64x2_t
+      map: a
+    - name: rhs
+      type: wav_i64x2_t
+      map: b
+  - name: wav_u64x2_eq
+    alias:
+    - wav_eq
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_u64x2_t
+      map: a
+    - name: rhs
+      type: wav_u64x2_t
+      map: b
+
+- name: f32x4.eq
+  opcode: 0x41
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_eq
+    alias:
+    - wav_eq
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_f32x4_t
+      map: a
+    - name: rhs
+      type: wav_f32x4_t
+      map: b
+  - name: wav_u32x4_eq
+    alias:
+    - wav_eq
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_u32x4_t
+      map: a
+    - name: rhs
+      type: wav_u32x4_t
+      map: b
+
+- name: f64x2.eq
+  opcode: 0x47
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_eq
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_eq
+    alias:
+    - wav_eq
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_f64x2_t
+      map: a
+    - name: rhs
+      type: wav_f64x2_t
+      map: b
+  - name: wav_u64x2_eq
+    alias:
+    - wav_eq
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_u64x2_t
+      map: a
+    - name: rhs
+      type: wav_u64x2_t
+      map: b
