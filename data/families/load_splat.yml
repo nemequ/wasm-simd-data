@@ -1,0 +1,144 @@
+title: Load and Splat
+description: >-
+  Load a single element from memory into the all lanes of a vector.
+
+instructions:
+- name: v128.load8_splat
+  opcode: 0x07
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_v128_load8_splat
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+  wav:
+  - name: wav_i8x16_load_splat
+    return: wav_i8x16_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const int8_t *
+      map: m
+  - name: wav_u8x16_load
+    return: wav_u8x16_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const uint8_t *
+      map: m
+
+- name: v128.load16_splat
+  opcode: 0x08
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_v128_load16_splat
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+  wav:
+  - name: wav_i16x8_load_splat
+    return: wav_i16x8_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const int16_t *
+      map: m
+  - name: wav_u16x8_load
+    return: wav_u16x8_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const uint16_t *
+      map: m
+
+- name: v128.load32_splat
+  opcode: 0x09
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_v128_load32_splat
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+  wav:
+  - name: wav_i32x4_load_splat
+    return: wav_i32x4_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const int32_t *
+      map: m
+  - name: wav_u32x4_load
+    return: wav_u32x4_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const uint32_t *
+      map: m
+  - name: wav_f32x4_load
+    return: wav_f32x4_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const float *
+      map: m
+
+- name: v128.load64_splat
+  opcode: 0x0a
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  intrin:
+  - name: wasm_v128_load64_splat
+    return: v128_t
+    params:
+    - name: __mem
+      type: const void *
+      map: m
+  wav:
+  - name: wav_i64x2_load_splat
+    return: wav_i64x2_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const int64_t *
+      map: m
+  - name: wav_u64x2_load
+    return: wav_u64x2_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const uint64_t *
+      map: m
+  - name: wav_f64x2_load
+    return: wav_f64x2_t
+    alias:
+    - wav_load_splat
+    params:
+    - name: src
+      type: const double *
+      map: m
