@@ -67,7 +67,7 @@ for family_name in families.keys():
           mca_filename = generate_outfile([instruction['name'], target['name'], option['name'], 'mca'])
           instruction_mca_files.append(mca_filename)
 
-          print(generate_outfile([instruction['name'], target['name'], option['name'], 's']) + ': ', end = '')
+          print(asm_filename + ': ', end = '')
           print('.'.join([instruction['name'], 'c']) + ' out/stamp')
           print('\t$(CLANG) --target=%s %s $(CFLAGS) -S -o $@ $<' % (target['triple'], option['flags']))
 
@@ -92,48 +92,3 @@ print('\tmkdir -p out && touch out/stamp')
 
 print('clean:')
 print('\trm -rf ' + ' '.join(cleanfiles))
-            
-
-
-
-# print('all: ', end = '')
-# for family_name in families.keys():
-#   family = families[family_name]
-#   if not "instructions" in family:
-#     continue
-#   for instruction in family["instructions"]:
-#     for target in targets:
-#       for option in target["options"]:
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 'mca'])), end = " ")
-# print("\n")
-
-# print('clean: ')
-# print('\trm -rf ', end = '')
-# for family_name in families.keys():
-#   family = families[family_name]
-#   if not "instructions" in family:
-#     continue
-#   for instruction in family["instructions"]:
-#     for target in targets:
-#       for option in target["options"]:
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 'mca'])), end = " ")
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 's'])), end = " ")
-# print("\n")
-
-# print('out/stamp:')
-# print('\tmkdir -p out && touch $@\n')
-
-# for family_name in families.keys():
-#   family = families[family_name]
-#   if not "instructions" in family:
-#     continue
-#   for instruction in family["instructions"]:
-#     for target in targets:
-#       for option in target["options"]:
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 'mca'])), end = ': ')
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 's'])))
-#         print('\t$(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ $^ 2>/dev/null' % (target["triple"], target["analysis_cpu"]))
-#         print(os.path.join('out', '.'.join([instruction["name"], target["name"], option["name"], 's'])), end = ': ')
-#         print('.'.join([instruction["name"], 'c']) + ' out/stamp')
-#         print('\t$(CLANG) --target=%s %s $(CFLAGS) -S -o $@ $<' % (target["triple"], option["flags"]))
-#       print('')
