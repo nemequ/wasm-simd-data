@@ -1,0 +1,278 @@
+title: Less-than
+description: >-
+  Lane-wise less than comparison of two vectors, storing all zeros in
+  the return value if the result is false and all ones if it is true.
+instructions:
+
+- name: i8x16.lt_s
+  opcode: 0x25
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i8x16_lt
+    alias:
+    - wav_lt
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_i8x16_t
+      map: a
+    - name: rhs
+      type: wav_i8x16_t
+      map: b
+- name: i16x8.lt_s
+  opcode: 0x2f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_lt
+    alias:
+    - wav_lt
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_i16x8_t
+      map: a
+    - name: rhs
+      type: wav_i16x8_t
+      map: b
+- name: i32x4.lt_s
+  opcode: 0x39
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i32x4_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_lt
+    alias:
+    - wav_lt
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_i32x4_t
+      map: a
+    - name: rhs
+      type: wav_i32x4_t
+      map: b
+- name: i64x2.lt_s
+  opcode: 0xd8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i64x2_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i64x2_lt
+    alias:
+    - wav_lt
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_i64x2_t
+      map: a
+    - name: rhs
+      type: wav_i64x2_t
+      map: b
+
+- name: i8x16.lt_u
+  opcode: 0x26
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u8x16_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u8x16_lt
+    alias:
+    - wav_lt
+    return: wav_b8x16_t
+    params:
+    - name: lhs
+      type: wav_u8x16_t
+      map: a
+    - name: rhs
+      type: wav_u8x16_t
+      map: b
+- name: i16x8.lt_u
+  opcode: 0x30
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u16x8_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u16x8_lt
+    alias:
+    - wav_lt
+    return: wav_b16x8_t
+    params:
+    - name: lhs
+      type: wav_u16x8_t
+      map: a
+    - name: rhs
+      type: wav_u16x8_t
+      map: b
+- name: i32x4.lt_u
+  opcode: 0x3a
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u32x4_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_u32x4_lt
+    alias:
+    - wav_lt
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_u32x4_t
+      map: a
+    - name: rhs
+      type: wav_u32x4_t
+      map: b
+
+- name: f32x4.lt
+  opcode: 0x43
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_lt
+    alias:
+    - wav_lt
+    return: wav_b32x4_t
+    params:
+    - name: lhs
+      type: wav_f32x4_t
+      map: a
+    - name: rhs
+      type: wav_f32x4_t
+      map: b
+- name: f64x2.lt
+  opcode: 0x49
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_lt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_lt
+    alias:
+    - wav_lt
+    return: wav_b64x2_t
+    params:
+    - name: lhs
+      type: wav_f64x2_t
+      map: a
+    - name: rhs
+      type: wav_f64x2_t
+      map: b
