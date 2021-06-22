@@ -1,0 +1,347 @@
+title: Store
+description: >-
+  Store a vector to the specificed address.
+
+instructions:
+- name: v128.store
+  opcode: 0x0b
+  return: v128
+
+  params:
+  - name: m
+    type: memarg
+  - name: data
+    type: v128
+  intrin:
+  - name: wasm_v128_store
+    params:
+    - name: __mem
+      type: void *
+      map: m
+      alignment: 1
+    - name: __a
+      type: v128_t
+      map: m
+  wav:
+  - name: wav_i8x16_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int8_t[16]
+      map: m
+    - name: src
+      type: wav_i8x16_t
+      map: data
+  - name: wav_i16x8_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int16_t[8]
+      map: m
+    - name: src
+      type: wav_i16x8_t
+      map: data
+  - name: wav_i32x4_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int32_t[4]
+      map: m
+    - name: src
+      type: wav_i32x4_t
+      map: data
+  - name: wav_i64x2_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int64_t[2]
+      map: m
+    - name: src
+      type: wav_i64x2_t
+      map: data
+  - name: wav_u8x16_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int8_t[16]
+      map: m
+    - name: src
+      type: wav_u8x16_t
+      map: data
+  - name: wav_u16x8_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int16_t[8]
+      map: m
+    - name: src
+      type: wav_u16x8_t
+      map: data
+  - name: wav_u32x4_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int32_t[4]
+      map: m
+    - name: src
+      type: wav_u32x4_t
+      map: data
+  - name: wav_u64x2_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: int64_t[2]
+      map: m
+    - name: src
+      type: wav_u64x2_t
+      map: data
+  - name: wav_f32x4_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: float[4]
+      map: m
+    - name: src
+      type: wav_f32x4_t
+      map: data
+  - name: wav_f64x2_store
+    alias:
+    - wav_store
+    params:
+    - name: dest
+      type: double[2]
+      map: m
+    - name: src
+      type: wav_f64x2_t
+      map: data
+
+  - name: wav_i8x16_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int8_t[16]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_i8x16_t
+      map: data
+  - name: wav_i16x8_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int16_t[8]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_i16x8_t
+      map: data
+  - name: wav_i32x4_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int32_t[4]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_i32x4_t
+      map: data
+  - name: wav_i64x2_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int64_t[2]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_i64x2_t
+      map: data
+  - name: wav_u8x16_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int8_t[16]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_u8x16_t
+      map: data
+  - name: wav_u16x8_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int16_t[8]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_u16x8_t
+      map: data
+  - name: wav_u32x4_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int32_t[4]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_u32x4_t
+      map: data
+  - name: wav_u64x2_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: int64_t[2]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_u64x2_t
+      map: data
+  - name: wav_f32x4_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: float[4]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_f32x4_t
+      map: data
+  - name: wav_f64x2_storea
+    alias:
+    - wav_storea
+    params:
+    - name: dest
+      type: double[2]
+      map: m
+      alignment: 16
+    - name: src
+      type: wav_f64x2_t
+      map: data
+
+  - name: wav_i8x16_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_i16x8_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_i32x4_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_i64x2_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_u8x16_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_u16x8_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_u32x4_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_u64x2_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_f32x4_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
+  - name: wav_f64x2_storeu
+    alias:
+    - wav_storeu
+    params:
+    - name: dest
+      type: void *
+      map: m
+      alignment: 1
+    - name: src
+      type: void *
+      map: data
