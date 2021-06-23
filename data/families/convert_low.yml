@@ -1,0 +1,49 @@
+title: Conversion to double-precision floating point
+description: >-
+  Convert low 32-bit integers to 64-bit doubles.
+instructions:
+- name: f64x2.convert_low_i32x4_s
+  opcode: 0xfe
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_convert_low_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_convert_low_f64x2
+    alias:
+    - wav_convert_f64x2
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+
+- name: f64x2.convert_low_i32x4_u
+  opcode: 0xff
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_convert_low_u32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u32x4_convert_low_f64x2
+    alias:
+    - wav_convert_f64x2
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
