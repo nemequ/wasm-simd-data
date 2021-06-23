@@ -1,0 +1,49 @@
+title: Round to nearest
+description: >-
+  Lane-wise round to nearest integer value with ties toward even.
+instructions:
+- name: f32x4.nearest
+  opcode: 0x6a
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_nearest
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_nearest
+    alias:
+    - wav_nearest
+    return: wav_f32x4_t
+    params:
+    - name: vec
+      type: wav_f32x4_t
+      map: a
+
+- name: f64x2.nearest
+  opcode: 0x94
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_nearest
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_nearest
+    alias:
+    - wav_nearest
+    return: wav_f64x2_t
+    params:
+    - name: vec
+      type: wav_f64x2_t
+      map: a
