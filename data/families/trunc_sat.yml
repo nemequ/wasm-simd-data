@@ -1,0 +1,50 @@
+title: Saturated conversion from floating-point to integers
+description: >-
+  Conversion from floating-point to integer types, with saturation.
+  NaN is converted to 0.
+instructions:
+- name: i32x4.trunc_sat_f32x4_s
+  opcode: 0xf8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_trunc_sat_f32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_trunc_sat_i32x4
+    alias:
+    - wav_trunc_sat_f32x4
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+
+- name: i32x4.trunc_sat_f32x4_u
+  opcode: 0xf9
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_trunc_sat_f32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_trunc_sat_u32x4
+    alias:
+    - wav_trunc_sat_f32x4
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
