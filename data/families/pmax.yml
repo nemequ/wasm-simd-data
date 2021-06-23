@@ -1,0 +1,67 @@
+title: Lane-wise pseudo-maximum
+description: >-
+  Compares values, and returns the maximum of each pair.
+
+  The operation is defined as `a < b ? b : a`.
+instructions:
+- name: f32x4.pmax
+  opcode: 0xeb
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_pmax
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_pmax
+    alias:
+    - wav_pmax
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+
+- name: f64x2.pmax
+  opcode: 0xf7
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_pmax
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_pmax
+    alias:
+    - wav_pmax
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
+      map: b
