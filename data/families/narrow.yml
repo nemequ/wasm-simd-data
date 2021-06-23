@@ -1,0 +1,127 @@
+title: Narrowing saturated conversion.
+description: >-
+  Convert from wider signed type to narrower type.
+instructions:
+- name: i8x16.narrow_i16x8_s
+  opcode: 0x65
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i8x16_narrow_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_narrow
+    alias:
+    - wav_narrow
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: a
+      type: wav_i16x8_t
+      map: a
+
+- name: i16x8.narrow_i32x4_s
+  opcode: 0x85
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_i16x8_narrow_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_narrow
+    alias:
+    - wav_narrow
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: a
+      type: wav_i32x4_t
+      map: a
+
+- name: i8x16.narrow_i16x8_u
+  opcode: 0x66
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u8x16_narrow_u16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i16x8_narrow_u
+    alias:
+    - wav_narrow_u
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: a
+      type: wav_i16x8_t
+      map: a
+
+- name: i16x8.narrow_i32x4_u
+  opcode: 0x86
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_u16x8_narrow_u32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_i32x4_narrow_u
+    alias:
+    - wav_narrow_u
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
