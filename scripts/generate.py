@@ -27,10 +27,15 @@ for family_name in families.keys():
     for target in targets:
       with open(os.path.join(os.path.dirname(__file__), "..", "lowering", "out", '.'.join([ inst['name'], target['name'], 'json' ])), 'r') as fp:
         data = json.load(fp)
-        if 'lowering' in inst:
-          inst['lowering'] = inst['lowering'] + data
-        else:
-          inst['lowering'] = data
+        if not 'lowering' in inst:
+          inst['lowering'] = []
+        inst['lowering'].append({ 'arch': target['name'], 'options': data })
+
+
+        # if 'lowering' in inst:
+        #   inst['lowering'] = inst['lowering'] + data
+        # else:
+        #   inst['lowering'] = data
 
 # I feel like there has to be a better way…
 def sort_dict(dict):
