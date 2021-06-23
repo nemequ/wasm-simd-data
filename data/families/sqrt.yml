@@ -1,0 +1,49 @@
+title: Square root
+description: >-
+  Lane-wise square root.
+instructions:
+- name: f32x4.sqrt
+  opcode: 0xe3
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_sqrt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_sqrt
+    alias:
+    - wav_sqrt
+    return: wav_f32x4_t
+    params:
+    - name: vec
+      type: wav_f32x4_t
+      map: a
+
+- name: f64x2.sqrt
+  opcode: 0xef
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_sqrt
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_sqrt
+    alias:
+    - wav_sqrt
+    return: wav_f64x2_t
+    params:
+    - name: vec
+      type: wav_f64x2_t
+      map: a
