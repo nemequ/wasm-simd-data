@@ -1,0 +1,280 @@
+title: Extend integers.
+description: >-
+  Convert from narrower signed type to wider type.
+instructions:
+
+- name: i16x8.extend_low_i8x16_s
+  opcode: 0x87
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extend_low_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+
+- name: i16x8.extend_high_i8x16_s
+  opcode: 0x88
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i16x8_extend_high_i8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i8x16_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+
+- name: i16x8.extend_low_i8x16_u
+  opcode: 0x89
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u16x8_extend_low_u8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u8x16_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+
+- name: i16x8.extend_high_i8x16_u
+  opcode: 0x8a
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u16x8_extend_high_u8x16
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u8x16_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+
+- name: i32x4.extend_low_i16x8_s
+  opcode: 0xa7
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extend_low_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+
+- name: i32x4.extend_high_i16x8_s
+  opcode: 0xa8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_extend_high_i16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i16x8_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+
+- name: i32x4.extend_low_i16x8_u
+  opcode: 0xa9
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u32x4_extend_low_u16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u16x8_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+
+- name: i32x4.extend_high_i16x8_u
+  opcode: 0xaa
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u32x4_extend_high_u16x8
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u16x8_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+
+- name: i64x2.extend_low_i32x4_s
+  opcode: 0xc7
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extend_low_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+
+- name: i64x2.extend_high_i32x4_s
+  opcode: 0xc8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i64x2_extend_high_i32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_i32x4_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+
+- name: i64x2.extend_low_i32x4_u
+  opcode: 0xc9
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u64x2_extend_low_u32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u32x4_extend_low
+    alias:
+    - wav_extend_low
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+
+- name: i64x2.extend_high_i32x4_u
+  opcode: 0xca
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u64x2_extend_high_u32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_u32x4_extend_high
+    alias:
+    - wav_extend_high
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
