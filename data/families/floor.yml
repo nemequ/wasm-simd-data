@@ -1,0 +1,49 @@
+title: Floor
+description: >-
+  Lane-wise round toward negative infinity to nearest integer value.
+instructions:
+- name: f32x4.floor
+  opcode: 0x68
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_floor
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_floor
+    alias:
+    - wav_floor
+    return: wav_f32x4_t
+    params:
+    - name: vec
+      type: wav_f32x4_t
+      map: a
+
+- name: f64x2.floor
+  opcode: 0x75
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_floor
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_floor
+    alias:
+    - wav_floor
+    return: wav_f64x2_t
+    params:
+    - name: vec
+      type: wav_f64x2_t
+      map: a
