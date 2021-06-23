@@ -1,0 +1,50 @@
+name: deploy
+
+on:
+  push:
+    branches:
+    - master
+    - wip/deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Update
+      run: |
+        sudo apt-get update
+        sudo apt-get dist-upgrade
+    - name: Install dependencies
+      run: sudo apt-get install gcc-multilib python3
+    - name: Install LLVM
+      run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+    - name: Checkout SIMDe
+      uses: actions/checkout@v2
+      with:
+        repository: simd-everywhere/simde-no-tests
+        path: lowering/simde
+    - name: Generate Makefile
+      run: ./lowering/generate-makefile.py > lowering/Makefile
+    - name: Generate lowering data
+      run: make -C lowering -j$(expr $(nproc) \* 2) CLANG="clang-$(grep -Po 'llvm-toolchain-([a-z]+)-([0-9]+)' /etc/apt/sources.list | uniq | cut -d '-' -f 4)" LLVM_MCA="llvm-mca-$(grep -Po 'llvm-toolchain-([a-z]+)-([0-9]+)' /etc/apt/sources.list | uniq | cut -d '-' -f 4)"
+    - name: Generate data.json
+      run: |
+        mkdir -p output/
+        ./scripts/generate.py output/wasm-simd-perf.json
+    - name: Initialize new repo
+      run: |
+        cd output
+        git init
+        git add -A
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m 'deploy'
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        force: true
+        directory: output
