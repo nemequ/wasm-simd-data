@@ -1,6 +1,6 @@
-title: Lane-wise integer absolute value
+title: Lane-wise absolute value
 description: >-
-  Lane-wise wrapping absolute value.
+  Lane-wise absolute value.
 instructions:
 
 - name: i8x16.abs
@@ -95,3 +95,48 @@ instructions:
       type: wav_i64x2_t
       map: a
 
+- name: f32x4.abs
+  opcode: 0xe0
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_abs
+    alias:
+    - wav_abs
+    return: wav_f32x4_t
+    params:
+    - name: vec
+      type: wav_f32x4_t
+      map: a
+
+- name: f64x2.abs
+  opcode: 0xec
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_abs
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_abs
+    alias:
+    - wav_abs
+    return: wav_f64x2_t
+    params:
+    - name: vec
+      type: wav_f64x2_t
+      map: a
