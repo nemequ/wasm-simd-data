@@ -1,11 +1,6 @@
-title: Integer subtraction
+title: Subtraction
 description: >-
-  Lane-wise wrapping integer subtraction.
-operation: |
-  def S.sub(a, b):
-      def sub(x, y):
-          return S.Reduce(x - y)
-      return S.lanewise_binary(sub, a, b)
+  Lane-wise subtraction.
 instructions:
 
 - name: i8x16.sub
@@ -174,4 +169,66 @@ instructions:
       map: a
     - name: b
       type: wav_u64x2_t
+      map: b
+
+- name: f32x4.sub
+  opcode: 0xe5
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_sub
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_sub
+    alias:
+    - wav_sub
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+
+- name: f64x2.sub
+  opcode: 0xf1
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_sub
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_sub
+    alias:
+    - wav_sub
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
       map: b
