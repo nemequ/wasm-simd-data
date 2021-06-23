@@ -1,0 +1,27 @@
+title: Conversion from single to double-precison floating point.
+description: >-
+  Convert low single-precision floating point values to
+  single-precision floating point.
+instructions:
+- name: f64x2.promote_low_f32x4
+  opcode: 0x5f
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_promote_low_f32x4
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_promote_low
+    alias:
+    - wav_promote
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
