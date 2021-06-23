@@ -1,11 +1,6 @@
-title: Integer addition
+title: Addition
 description: >-
-  Lane-wise wrapping integer addition.
-operation: |
-  def S.add(a, b):
-      def add(x, y):
-          return S.Reduce(x + y)
-      return S.lanewise_binary(add, a, b)
+  Lane-wise addition.
 instructions:
 
 - name: i8x16.add
@@ -174,4 +169,66 @@ instructions:
       map: a
     - name: b
       type: wav_u64x2_t
+      map: b
+
+- name: f32x4.add
+  opcode: 0xe4
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_add
+    alias:
+    - wav_add
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+
+- name: f64x2.add
+  opcode: 0xf0
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_add
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_add
+    alias:
+    - wav_add
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
       map: b
