@@ -1,0 +1,49 @@
+title: Ceiling
+description: >-
+  Lane-wise round toward positive infinity to nearest integer value.
+instructions:
+- name: f32x4.ceil
+  opcode: 0x67
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_ceil
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f32x4_ceil
+    alias:
+    - wav_ceil
+    return: wav_f32x4_t
+    params:
+    - name: vec
+      type: wav_f32x4_t
+      map: a
+
+- name: f64x2.ceil
+  opcode: 0x74
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f64x2_ceil
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_ceil
+    alias:
+    - wav_ceil
+    return: wav_f64x2_t
+    params:
+    - name: vec
+      type: wav_f64x2_t
+      map: a
