@@ -1,7 +1,9 @@
-title: Lane-wise integer minimum
+title: Lane-wise minimum
 description: >-
-  Compares lane-wise signed/unsigned integers, and returns the minimum
-  of each pair.
+  Compares values, and returns the minimum of each pair.
+
+  For floating-point values, if either value is NaN then the result is
+  NaN.
 instructions:
 
 - name: i8x16.min_s
@@ -188,4 +190,66 @@ instructions:
       map: a
     - name: b
       type: wav_i32x4_t
+      map: b
+
+- name: f32x4.min
+  opcode: 0xe8
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_min
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_min
+    alias:
+    - wav_min
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+
+- name: f64x2.min
+  opcode: 0xf4
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_min
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_min
+    alias:
+    - wav_min
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
       map: b
