@@ -1,0 +1,272 @@
+title: Store Lane
+description: >-
+  Store a single lane from a vector to the specified address.
+
+instructions:
+- name: v128.store8_lane
+  opcode: 0x58
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: data
+    type: v128
+  - name: imm
+    type: ImmLaneIdx16
+  intrin:
+  - name: wasm_v128_store8_lane
+    params:
+    - name: __ptr
+      type: void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: data
+    - name: __i
+      type: int
+      map: imm
+      range:
+        min: 0
+        max: 15
+  wav:
+  - name: wav_i8x16_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: int8_t *
+      map: m
+    - name: src
+      type: wav_i8x16_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+  - name: wav_u8x16_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: uint8_t *
+      map: m
+    - name: src
+      type: wav_u8x16_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 15
+
+- name: v128.store16_lane
+  opcode: 0x59
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: data
+    type: v128
+  - name: imm
+    type: ImmLaneIdx8
+  intrin:
+  - name: wasm_v128_store16_lane
+    params:
+    - name: __ptr
+      type: void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: data
+    - name: __i
+      type: int
+      map: imm
+      range:
+        min: 0
+        max: 7
+  wav:
+  - name: wav_i16x8_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: int16_t *
+      map: m
+    - name: src
+      type: wav_i16x8_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+  - name: wav_u16x8_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: uint16_t *
+      map: m
+    - name: src
+      type: wav_u16x8_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 7
+
+- name: v128.store32_lane
+  opcode: 0x5a
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: data
+    type: v128
+  - name: imm
+    type: ImmLaneIdx4
+  intrin:
+  - name: wasm_v128_store32_lane
+    params:
+    - name: __ptr
+      type: void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: data
+    - name: __i
+      type: int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  wav:
+  - name: wav_i32x4_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: int32_t *
+      map: m
+    - name: src
+      type: wav_i32x4_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  - name: wav_u32x4_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: uint32_t *
+      map: m
+    - name: src
+      type: wav_u32x4_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+  - name: wav_f32x4_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: float *
+      map: m
+    - name: src
+      type: wav_f32x4_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 3
+
+- name: v128.store64_lane
+  opcode: 0x5b
+  return: v128
+  params:
+  - name: m
+    type: memarg
+  - name: data
+    type: v128
+  - name: imm
+    type: ImmLaneIdx2
+  intrin:
+  - name: wasm_v128_store64_lane
+    params:
+    - name: __ptr
+      type: void *
+      map: m
+    - name: __vec
+      type: v128_t
+      map: data
+    - name: __i
+      type: int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  wav:
+  - name: wav_i64x2_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: int64_t *
+      map: m
+    - name: src
+      type: wav_i64x2_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  - name: wav_u64x2_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: uint64_t *
+      map: m
+    - name: src
+      type: wav_u64x2_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
+  - name: wav_f64x2_store_lane
+    alias:
+    - wav_store_lane
+    params:
+    - name: dest
+      type: double *
+      map: m
+    - name: src
+      type: wav_f64x2_t
+      map: data
+    - name: lane
+      type: const int
+      map: imm
+      range:
+        min: 0
+        max: 1
