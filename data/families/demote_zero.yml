@@ -1,0 +1,27 @@
+title: Conversion from double to single-precison floating point.
+description: >-
+  Convert double-precision floating point values to single-precision
+  floating point.  High lanes are zeroed.
+instructions:
+- name: f32x4.demote_f64x2_zero
+  opcode: 0x5e
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_f32x4_demote_f64x2_zero
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_demote
+    alias:
+    - wav_demote
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
