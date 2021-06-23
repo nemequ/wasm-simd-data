@@ -6,11 +6,20 @@ an example of the output, see [this
 gist](https://gist.github.com/nemequ/356f7356b1373bea2d58bdd3e69769b6).
 Note that the current output contains many more instructions.
 
+Currently, we have complete data for the [WebAssembly 128-bit packed
+SIMD Extension](https://github.com/WebAssembly/simd/blob/main/proposals/simd/SIMD.md).
+We intend to add data for other proposals, such as the [Relaxed SIMD
+proposal for WebAssembly](https://github.com/WebAssembly/relaxed-simd)
+and the [Flexible Vectors Proposal for
+WebAssembly](https://github.com/WebAssembly/flexible-vectors/) as they
+mature.
+
 The data/ directory contains descriptions of the API, including
 opcodes, instruction names and parameters, as well as data about the
 corresponding higher-level APIs in both
 [wasm_simd128.h](https://github.com/llvm/llvm-project/blob/main/clang/lib/Headers/wasm_simd128.h)
-and [WAV](https://github.com/nemequ/wav).
+and [WAV](https://github.com/nemequ/wav); we are open to adding data
+for APIs in other languages (*e.g.*, Rust).
 
 The lowering/ directory then uses that information to generate more
 data on which instructions are expected to be used on various
@@ -45,10 +54,3 @@ but I'm leaning towards re-writing those sections anyways.  Not only
 would this allow us to use a more permissive license (perhaps even
 a public domain dedication), it would allow more flexibility in how the
 content is organized.
-
-
-To generate the lowering data, the `lowering/generate-makefile.py`
-script is first used to generate a `Makefile` which contains rules to
-allow generating the rest of the lowering data in parallel.  To use
-it, just redirect the output to `Makefile`; for example,
-`./generate-makefile.py > Makefile`.
