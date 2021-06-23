@@ -1,10 +1,9 @@
 # WASM SIMD Data
 
 This repository contains code and data which can be used to generate
-a JSON file containing information about the WASM SIMD proposal.  For
-an example of the output, see [this
-gist](https://gist.github.com/nemequ/356f7356b1373bea2d58bdd3e69769b6).
-Note that the current output contains many more instructions.
+a JSON file containing information about the WASM SIMD proposal.  The
+generated data is published to
+https://nemequ.github.io/wasm-simd-data/wasm-simd-data.json
 
 Currently, we have complete data for the [WebAssembly 128-bit packed
 SIMD Extension](https://github.com/WebAssembly/simd/blob/main/proposals/simd/SIMD.md).
