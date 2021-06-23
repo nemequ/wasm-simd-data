@@ -1,11 +1,6 @@
-title: Integer multraction
+title: Multiplication
 description: >-
-  Lane-wise wrapping integer multraction.
-operation: |
-  def S.mul(a, b):
-      def mul(x, y):
-          return S.Reduce(x * y)
-      return S.lanewise_binary(mul, a, b)
+  Lane-wise multiplication.
 instructions:
 
 - name: i16x8.mul
@@ -132,4 +127,66 @@ instructions:
       map: a
     - name: b
       type: wav_u64x2_t
+      map: b
+
+- name: f32x4.mul
+  opcode: 0xe6
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f32x4_mul
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f32x4_mul
+    alias:
+    - wav_mul
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+
+- name: f64x2.mul
+  opcode: 0xf2
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  intrin:
+  - name: wasm_f64x2_mul
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+  wav:
+  - name: wav_f64x2_mul
+    alias:
+    - wav_mul
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
       map: b
