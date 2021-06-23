@@ -1,0 +1,51 @@
+title: Saturated conversion from double-precision floating-point to integers
+description: >-
+  Conversion double-precision floating-point to 32-bit integers, with
+  saturation.  NaN is converted to 0.  High lanes in output vector are
+  zeroed.
+instructions:
+- name: i32x4.trunc_sat_f64x2_s_zero
+  opcode: 0xfc
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_i32x4_trunc_sat_f64x2_zero
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_trunc_sat_zero_i32x4
+    alias:
+    - wav_trunc_sat_zero_f64x2
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+
+- name: i32x4.trunc_sat_f64x2_u_zero
+  opcode: 0xfd
+  return: v128
+  params:
+  - name: a
+    type: v128
+  intrin:
+  - name: wasm_u32x4_trunc_sat_f64x2_zero
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+  wav:
+  - name: wav_f64x2_trunc_sat_zero_u32x4
+    alias:
+    - wav_trunc_sat_zero_f64x2
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
