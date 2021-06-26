@@ -72,3 +72,19 @@
     flags: -march=armv8.5-a
   - name: armv8.6-a
     flags: -march=armv8.6-a
+- name: POWER
+  triple: powerpc64le-linux-gnu
+  return_insn: blr
+  imm_syntax:
+  - '^(?P<value>[0-9]+)$'
+  analysis_cpu: pwr9
+  options:
+  - name: POWER6
+    flags: -mcpu=power6
+  # POWER7 in clang seems to be very buggy right now.
+  # - name: POWER7
+  #   flags: -mcpu=power7
+  - name: POWER8
+    flags: -mcpu=power8
+  - name: POWER9
+    flags: -mcpu=power9
