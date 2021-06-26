@@ -1,0 +1,458 @@
+title: Shuffling using immediate indices
+description: >-
+  Shuffle two vectors using the indices specified by the the immediate
+  parameters.  Values in the range [0, 15] are selected from the first
+  vector, and values in [16, 31] are selected from the second vector.
+  Values outside of [0, 31] are invalid.
+
+  This basically works the same as clang's
+  [`__builtin_shufflevector`](https://clang.llvm.org/docs/LanguageExtensions.html#langext-builtin-shufflevector).
+instructions:
+
+- name: i8x16.shuffle
+  opcode: 0x0d
+  return: v128
+  params:
+  - name: a
+    type: v128
+  - name: b
+    type: v128
+  - name: imm
+    type: ImmLaneIdx32[16]
+  intrin:
+  - name: wasm_i8x16_shuffle
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+    - name: __c0
+      type: const int
+      map: imm[0]
+    - name: __c1
+      type: const int
+      map: imm[1]
+    - name: __c2
+      type: const int
+      map: imm[2]
+    - name: __c3
+      type: const int
+      map: imm[3]
+    - name: __c4
+      type: const int
+      map: imm[4]
+    - name: __c5
+      type: const int
+      map: imm[5]
+    - name: __c6
+      type: const int
+      map: imm[6]7
+    - name: __c
+      type: const int
+      map: imm[7]
+    - name: __c8
+      type: const int
+      map: imm[8]
+    - name: __c9
+      type: const int
+      map: imm[9]
+    - name: __c10
+      type: const int
+      map: imm[10]
+    - name: __c11
+      type: const int
+      map: imm[11]
+    - name: __c12
+      type: const int
+      map: imm[12]
+    - name: __c13
+      type: const int
+      map: imm[13]
+    - name: __c14
+      type: const int
+      map: imm[14]
+    - name: __c15
+      type: const int
+      map: imm[15]
+  - name: wasm_i16x8_shuffle
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+    - name: __c0
+      type: const int
+      map: imm[0:1]
+    - name: __c1
+      type: const int
+      map: imm[2:3]
+    - name: __c2
+      type: const int
+      map: imm[4:5]
+    - name: __c3
+      type: const int
+      map: imm[6:7]
+    - name: __c4
+      type: const int
+      map: imm[8:9]
+    - name: __c5
+      type: const int
+      map: imm[10:11]
+    - name: __c6
+      type: const int
+      map: imm[12:13]7
+    - name: __c
+      type: const int
+      map: imm[14:15]
+  - name: wasm_i64x2_shuffle
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+    - name: __c0
+      type: const int
+      map: imm[0:7]
+    - name: __c1
+      type: const int
+      map: imm[8:15]
+  - name: wasm_i32x4_shuffle
+    return: v128_t
+    params:
+    - name: __a
+      type: v128_t
+      map: a
+    - name: __b
+      type: v128_t
+      map: b
+    - name: __c0
+      type: const int
+      map: imm[0:3]
+    - name: __c1
+      type: const int
+      map: imm[4:7]
+    - name: __c2
+      type: const int
+      map: imm[8:11]
+    - name: __c3
+      type: const int
+      map: imm[12:15]
+
+  wav:
+  - name: wav_i8x16_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_i8x16_t
+    params:
+    - name: a
+      type: wav_i8x16_t
+      map: a
+    - name: b
+      type: wav_i8x16_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0]
+    - name: c1
+      type: const int
+      map: imm[1]
+    - name: c2
+      type: const int
+      map: imm[2]
+    - name: c3
+      type: const int
+      map: imm[3]
+    - name: c4
+      type: const int
+      map: imm[4]
+    - name: c5
+      type: const int
+      map: imm[5]
+    - name: c6
+      type: const int
+      map: imm[6]
+    - name: c7
+      type: const int
+      map: imm[7]
+    - name: c8
+      type: const int
+      map: imm[8]
+    - name: c9
+      type: const int
+      map: imm[9]
+    - name: c10
+      type: const int
+      map: imm[10]
+    - name: c11
+      type: const int
+      map: imm[11]
+    - name: c12
+      type: const int
+      map: imm[12]
+    - name: c13
+      type: const int
+      map: imm[13]
+    - name: c14
+      type: const int
+      map: imm[14]
+    - name: c15
+      type: const int
+      map: imm[15]
+  - name: wav_u8x16_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_u8x16_t
+    params:
+    - name: a
+      type: wav_u8x16_t
+      map: a
+    - name: b
+      type: wav_u8x16_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0]
+    - name: c1
+      type: const int
+      map: imm[1]
+    - name: c2
+      type: const int
+      map: imm[2]
+    - name: c3
+      type: const int
+      map: imm[3]
+    - name: c4
+      type: const int
+      map: imm[4]
+    - name: c5
+      type: const int
+      map: imm[5]
+    - name: c6
+      type: const int
+      map: imm[6]
+    - name: c7
+      type: const int
+      map: imm[7]
+    - name: c8
+      type: const int
+      map: imm[8]
+    - name: c9
+      type: const int
+      map: imm[9]
+    - name: c10
+      type: const int
+      map: imm[10]
+    - name: c11
+      type: const int
+      map: imm[11]
+    - name: c12
+      type: const int
+      map: imm[12]
+    - name: c13
+      type: const int
+      map: imm[13]
+    - name: c14
+      type: const int
+      map: imm[14]
+    - name: c15
+      type: const int
+      map: imm[15]
+  - name: wav_i16x8_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_i16x8_t
+    params:
+    - name: a
+      type: wav_i16x8_t
+      map: a
+    - name: b
+      type: wav_i16x8_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:1]
+    - name: c1
+      type: const int
+      map: imm[2:3]
+    - name: c2
+      type: const int
+      map: imm[4:5]
+    - name: c3
+      type: const int
+      map: imm[6:7]
+    - name: c4
+      type: const int
+      map: imm[8:9]
+    - name: c5
+      type: const int
+      map: imm[10:11]
+    - name: c6
+      type: const int
+      map: imm[12:13]
+    - name: c7
+      type: const int
+      map: imm[14:15]
+  - name: wav_u16x8_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_u16x8_t
+    params:
+    - name: a
+      type: wav_u16x8_t
+      map: a
+    - name: b
+      type: wav_u16x8_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:1]
+    - name: c1
+      type: const int
+      map: imm[2:3]
+    - name: c2
+      type: const int
+      map: imm[4:5]
+    - name: c3
+      type: const int
+      map: imm[6:7]
+    - name: c4
+      type: const int
+      map: imm[8:9]
+    - name: c5
+      type: const int
+      map: imm[10:11]
+    - name: c6
+      type: const int
+      map: imm[12:13]
+    - name: c7
+      type: const int
+      map: imm[14:15]
+  - name: wav_i32x4_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_i32x4_t
+    params:
+    - name: a
+      type: wav_i32x4_t
+      map: a
+    - name: b
+      type: wav_i32x4_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:3]
+    - name: c1
+      type: const int
+      map: imm[4:7]
+    - name: c2
+      type: const int
+      map: imm[8:11]
+    - name: c3
+      type: const int
+      map: imm[12:15]
+  - name: wav_u32x4_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_u32x4_t
+    params:
+    - name: a
+      type: wav_u32x4_t
+      map: a
+    - name: b
+      type: wav_u32x4_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:3]
+    - name: c1
+      type: const int
+      map: imm[4:7]
+    - name: c2
+      type: const int
+      map: imm[8:11]
+    - name: c3
+      type: const int
+      map: imm[12:15]
+  - name: wav_f32x4_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_f32x4_t
+    params:
+    - name: a
+      type: wav_f32x4_t
+      map: a
+    - name: b
+      type: wav_f32x4_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:3]
+    - name: c1
+      type: const int
+      map: imm[4:7]
+    - name: c2
+      type: const int
+      map: imm[8:11]
+    - name: c3
+      type: const int
+      map: imm[12:15]
+  - name: wav_i64x2_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_i64x2_t
+    params:
+    - name: a
+      type: wav_i64x2_t
+      map: a
+    - name: b
+      type: wav_i64x2_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:7]
+    - name: c1
+      type: const int
+      map: imm[8:15]
+  - name: wav_u64x2_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_u64x2_t
+    params:
+    - name: a
+      type: wav_u64x2_t
+      map: a
+    - name: b
+      type: wav_u64x2_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:7]
+    - name: c1
+      type: const int
+      map: imm[8:15]
+  - name: wav_f64x2_shuffle
+    alias:
+    - wav_shuffle
+    return: wav_f64x2_t
+    params:
+    - name: a
+      type: wav_f64x2_t
+      map: a
+    - name: b
+      type: wav_f64x2_t
+      map: b
+    - name: c0
+      type: const int
+      map: imm[0:7]
+    - name: c1
+      type: const int
+      map: imm[8:15]

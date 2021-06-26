@@ -37,12 +37,13 @@ for family_name in families.keys():
     continue
 
   for inst in family["instructions"]:
-    for target in targets:
-      with open(os.path.join(os.path.dirname(__file__), "..", "lowering", "out", '.'.join([ inst['name'], target['name'], 'json' ])), 'r') as fp:
-        data = json.load(fp)
-        if not 'lowering' in inst:
-          inst['lowering'] = []
-        inst['lowering'].append({ 'arch': target['name'], 'options': data })
+    if not family_name in ['shuffle']:
+      for target in targets:
+        with open(os.path.join(os.path.dirname(__file__), "..", "lowering", "out", '.'.join([ inst['name'], target['name'], 'json' ])), 'r') as fp:
+          data = json.load(fp)
+          if not 'lowering' in inst:
+            inst['lowering'] = []
+          inst['lowering'].append({ 'arch': target['name'], 'options': data })
 
     func_line_anchor = -1
     simde_name = 'simde_' + inst['intrin'][0]['name'] + ' ('

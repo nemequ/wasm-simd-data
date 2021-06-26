@@ -39,6 +39,8 @@ for family_name in families.keys():
   family = families[family_name]
   if not 'instructions' in family:
     continue
+  if family_name in ['shuffle']:
+    continue
   for instruction in family['instructions']:
     imm_lane_type = 0
     for param in instruction['params']:
