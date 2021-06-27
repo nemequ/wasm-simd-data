@@ -36,7 +36,8 @@ def parse_mca_file(target, filename):
       line = fp.readline()
 
     for idx, instruction in enumerate(sections[0]['Instructions']):
-      inst_call = instruction.split('\t')
+      # inst_call = instruction.split('\t')
+      inst_call = re.split('[\t ]+', instruction)
 
       if inst_call[0] == target['return_insn']:
         continue
@@ -47,7 +48,7 @@ def parse_mca_file(target, filename):
         'uops': sections[2][idx]['NumMicroOpcodes']
       }
       if len(inst_call) > 1:
-        data['arguments'] = inst_call[1].split(', ')
+        data['arguments'] = ' '.join(inst_call[1:]).split(', ')
 
       res.append(data)
 
