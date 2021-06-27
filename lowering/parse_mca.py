@@ -45,6 +45,7 @@ def parse_mca_file(target, filename):
       data = {
         'name': inst_call[0],
         'latency': sections[2][idx]['Latency'],
+        'throughput': sections[2][idx]['RThroughput'],
         'uops': sections[2][idx]['NumMicroOpcodes']
       }
       if len(inst_call) > 1:
