@@ -1,7 +1,7 @@
 title: Left shift by scalar
 description: >-
-  Shift the bits in each lane to the left by the same amount. The shift
-  count is taken modulo lane width.
+  Left shift the bits in each lane by the specified amount, modulo the
+  width of the lane.
 instructions:
 
 - name: i8x16.shl

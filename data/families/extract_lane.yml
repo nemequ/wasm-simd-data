@@ -1,9 +1,7 @@
 title: Extract lane as a scalar
 description: >-
   Extract a single lane, specified by an immediate index, to a scalar.
-operation: |
-  def S.extract_lane(a, i):
-    return a[i]
+
 instructions:
 - name: i8x16.extract_lane_s
   opcode: 0x15

@@ -1,6 +1,6 @@
 title: Floor
 description: >-
-  Lane-wise round toward negative infinity to nearest integer value.
+  Lane-wise round to integer value toward negative infinity.
 instructions:
 - name: f32x4.floor
   opcode: 0x68

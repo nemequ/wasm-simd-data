@@ -1,12 +1,6 @@
 title: Create vector with identical lanes
 description: >-
-  Construct a vector with x replicated to all lanes.
-operation: |
-  def S.splat(x):
-    result = S.New()
-    for i in range(S.Lanes):
-        result[i] = S.Reduce(x)
-    return result
+  Broadcast a scalar to all lanes of a vector.
 instructions:
 
 - name: i8x16.splat

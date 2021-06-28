@@ -1,7 +1,7 @@
 title: Bitmask extraction
 description: >-
-  These operations extract the high bit for each lane in `a` and
-  produce a scalar mask with all bits concatenated.
+  Extract the high bit from each lane, placing the result in a scalar
+  value.
 instructions:
 
 - name: i8x16.bitmask

@@ -1,9 +1,6 @@
 title: Load
 description: >-
-  Load a `v128` vector from the given heap address.
-operation: |
-  def S.load(memarg):
-    return S.from_bytes(memory[memarg.offset:memarg.offset + 16])
+  Load a 128 bits from the specified address.
 
 instructions:
 - name: v128.load
