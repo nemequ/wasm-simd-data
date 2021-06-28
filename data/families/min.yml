@@ -1,6 +1,6 @@
 title: Lane-wise minimum
 description: >-
-  Compares values, and returns the minimum of each pair.
+  Compares values and returns the minimum of each pair.
 
   For floating-point values, if either value is NaN then the result is
   NaN.

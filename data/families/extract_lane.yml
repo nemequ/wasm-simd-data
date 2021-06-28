@@ -1,12 +1,6 @@
 title: Extract lane as a scalar
 description: >-
-  Extract the scalar value of lane specified in the immediate mode
-  operand `imm` in `a`. The `{interpretation}.extract_lane{_s}{_u}`
-  instructions are encoded with one immediate byte providing the
-  index of the lane to extract.
-
-  The _s and _u variants will sign-extend or zero-extend the lane
-  value to i32 respectively.
+  Extract a single lane, specified by an immediate index, to a scalar.
 operation: |
   def S.extract_lane(a, i):
     return a[i]

@@ -1,13 +1,8 @@
 title: Replace lane value
 description: >-
-  Return a new vector with lanes identical to `a`, except for the lane
-  specified in the immediate mode operand `imm` which has the value
-  `x`. The `{interpretation}.replace_lane` instructions are encoded
-  with an immediate byte providing the index of the lane the value
-  of which is to be replaced.
-
-  The input lane value, x, is interpreted the same way as for the splat
-  instructions. For the i8 and i16 lanes, the high bits of x are ignored.
+  Return a copy of the specified vector with the value of the lane
+  specified by the immediate-mode parameter `imm` replaced with the
+  provided value.
 operation: |
   def S.replace_lane(a, i, x):
     result = S.New()

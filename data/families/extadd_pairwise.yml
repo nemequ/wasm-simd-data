@@ -1,7 +1,6 @@
 title: Extended pairwise integer addition
 description: >-
-  Lane-wise integer extended pairwise addition producing extended
-  results (twice wider results than the inputs).
+  Add adjacent pairs, producing values twitce the width of the input.
 instructions:
 
 - name: i16x8.extadd_pairwise_i8x16_s

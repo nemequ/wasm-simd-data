@@ -1,7 +1,7 @@
 title: Integer dot product
 description: >-
-  Lane-wise multiply signed 16-bit integers in the two input vectors
-  and add adjacent pairs of the full 32-bit results.
+  Multiply values in the input vectors, producing values double the
+  width of the input, then add adjacent pairs and return the result.
 instructions:
 
 - name: i32x4.dot_i16x8_s

@@ -1,7 +1,6 @@
 title: Extended integer multiplication
 description: >-
-  Lane-wise integer extended multiplication producing twice wider
-  result than the inputs.
+  Multiply, producing values double the width of the input.
 instructions:
 - name: i16x8.extmul_low_i8x16_s
   opcode: 0x9c

@@ -1,9 +1,6 @@
 title: Constant
 description: >-
-  Materialize a constant `v128` SIMD value from the 16 immediate
-  bytes in the immediate mode operand `imm`. The `v128.const`
-  instruction is encoded with 16 immediate bytes which provide the
-  bits of the vector directly.
+  Load 128 bits of compile-time constant data into a vector.
 instructions:
 - name: v128.const
   opcode: 0x0c

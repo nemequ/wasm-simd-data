@@ -1,6 +1,6 @@
 title: Ceiling
 description: >-
-  Lane-wise round toward positive infinity to nearest integer value.
+  Lane-wise round to nearest integer value toward \positive infinity.
 instructions:
 - name: f32x4.ceil
   opcode: 0x67

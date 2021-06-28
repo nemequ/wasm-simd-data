@@ -1,6 +1,6 @@
 title: Lane-wise absolute value
 description: >-
-  Lane-wise absolute value.
+  Compute the absolute value of each element in the input vector.
 instructions:
 
 - name: i8x16.abs
