@@ -18,7 +18,11 @@ with open(os.path.join(os.path.dirname(__file__), "..", "data", "targets.yml"), 
   targets = yaml.safe_load(fp)
 
 def parse_mca_file(target, filename):
-  res = []
+  seq = []
+  res = {}
+
+  if os.stat(filename).st_size == 0:
+    return { 'throughput': 0.0, 'sequence': [] }
 
   with open(filename, 'r') as fp:
     sections = []
@@ -51,7 +55,9 @@ def parse_mca_file(target, filename):
       if len(inst_call) > 1:
         data['arguments'] = ' '.join(inst_call[1:]).split(', ')
 
-      res.append(data)
+      seq.append(data)
+
+  res = { 'throughput': sections[1]['SummaryView']['BlockRThroughput'], 'sequence': seq }
 
   return res
 
@@ -70,7 +76,7 @@ class ImplementationList:
     }
     self.__impls.append(data)
 
-    for instruction_idx, instruction in enumerate(instructions):
+    for instruction_idx, instruction in enumerate(instructions['sequence']):
       serialized_processed = serialized_processed + instruction['name'] + '\t'
       args = []
 
@@ -218,15 +224,15 @@ class ImplementationList:
                 args.append(str(replacement['immediate']) + ': ' + str(replacement['value']))
 
             if len(list(set(replacement_values))) == 1:
-              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', str(replacement_values[0]))
+              impl['instructions']['sequence'][insn_n]['arguments'][arg_n] = impl['instructions']['sequence'][insn_n]['arguments'][arg_n].replace('<{...}>', str(replacement_values[0]))
             else:
-              impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
+              impl['instructions']['sequence'][insn_n]['arguments'][arg_n] = impl['instructions']['sequence'][insn_n]['arguments'][arg_n].replace('<{...}>', '<{ ' + ', '.join(args) + ' }>')
 
           else:
             # TODO: assumes immediate is named imm, which IIRC is
             # always true in the in the WASM SIMD spec, but we should
             # probably not assume.
-            impl['instructions'][insn_n]['arguments'][arg_n] = impl['instructions'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
+            impl['instructions']['sequence'][insn_n]['arguments'][arg_n] = impl['instructions']['sequence'][insn_n]['arguments'][arg_n].replace('<{...}>', '<imm>')
 
         if 'replacements' in impl:
           del impl['replacements']

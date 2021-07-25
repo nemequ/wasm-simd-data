@@ -62,7 +62,7 @@ for family_name in families.keys():
             print('\t$(CLANG) --target=%s %s $(CFLAGS) -DIMMEDIATE=%d -S -o $@ $<' % (target['triple'], option['flags'], imm_value))
 
             print(mca_filename + ': ' + asm_filename)
-            print('\t$(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ $< 2>/dev/null' % (target['triple'], target['analysis_cpu']))
+            print('\tgrep -Pv \'^[ \\t]*' + target['return_insn'] + '$$\' $< | $(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ 2>$@.log || (grep -Pq \'^error: no assembly instructions found.$$\' $@.log && touch $@)' % (target['triple'], target['analysis_cpu']))
 
         else:
           asm_filename = generate_outfile([instruction['name'], target['name'], option['name'], 's'])
@@ -74,7 +74,7 @@ for family_name in families.keys():
           print('\t$(CLANG) --target=%s %s $(CFLAGS) -S -o $@ $<' % (target['triple'], option['flags']))
 
           print(mca_filename + ': ' + asm_filename)
-          print('\t$(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ $< 2>/dev/null' % (target['triple'], target['analysis_cpu']))
+          print('\tgrep -Pv \'^[ \\t]*' + target['return_insn'] + '$$\' $< | $(LLVM_MCA) --json --mtriple=%s -mcpu=%s -o $@ 2>/dev/null' % (target['triple'], target['analysis_cpu']))
         
         print('')
 
