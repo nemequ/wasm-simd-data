@@ -73,7 +73,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u8x16_narrow_u16x8
+  - name: wasm_u8x16_narrow_i16x8
     return: v128_t
     params:
     - name: __a
@@ -104,7 +104,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u16x8_narrow_u32x4
+  - name: wasm_u16x8_narrow_i32x4
     return: v128_t
     params:
     - name: __a
