@@ -74,7 +74,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u8x16_sub
+  - name: wasm_u8x16_sub_sat
     return: v128_t
     params:
     - name: __a
@@ -105,7 +105,7 @@ instructions:
   - name: b
     type: v128
   intrin:
-  - name: wasm_u16x8_sub
+  - name: wasm_u16x8_sub_sat
     return: v128_t
     params:
     - name: __a

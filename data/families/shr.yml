@@ -13,7 +13,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_i8x16_shr_s
+  - name: wasm_i8x16_shr
     return: v128_t
     params:
     - name: __a
@@ -44,7 +44,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_i16x8_shr_s
+  - name: wasm_i16x8_shr
     return: v128_t
     params:
     - name: __a
@@ -75,7 +75,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_i32x4_shr_s
+  - name: wasm_i32x4_shr
     return: v128_t
     params:
     - name: __a
@@ -106,7 +106,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_i64x2_shr_s
+  - name: wasm_i64x2_shr
     return: v128_t
     params:
     - name: __a
@@ -137,7 +137,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_u8x16_shr_u
+  - name: wasm_u8x16_shr
     return: v128_t
     params:
     - name: __a
@@ -168,7 +168,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_u16x8_shr_u
+  - name: wasm_u16x8_shr
     return: v128_t
     params:
     - name: __a
@@ -199,7 +199,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_u32x4_shr_u
+  - name: wasm_u32x4_shr
     return: v128_t
     params:
     - name: __a
@@ -230,7 +230,7 @@ instructions:
   - name: 'y'
     type: i32
   intrin:
-  - name: wasm_u64x2_shr_u
+  - name: wasm_u64x2_shr
     return: v128_t
     params:
     - name: __a

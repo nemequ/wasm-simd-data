@@ -10,7 +10,7 @@ instructions:
   - name: m
     type: memarg
   intrin:
-  - name: wasm_v128_load8x8
+  - name: wasm_i16x8_load8x8
     return: v128_t
     params:
     - name: __mem
