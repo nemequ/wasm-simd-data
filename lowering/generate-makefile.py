@@ -23,7 +23,7 @@ print('PYTHON3 ?= python3')
 print('')
 print('.PHONY: clean')
 print('')
-print('all: all-mca-json')
+print('all: stamp')
 print('')
 
 cleanfiles = []
@@ -85,8 +85,9 @@ for family_name in families.keys():
       print(' parse_mca.py')
       print('\t$(PYTHON3) parse_mca.py %s %s $@\n' % (instruction['name'], target['name']))
 
-print('all-mca-json: ', end = '')
+print('stamp: ', end = '')
 print(' '.join(json_files))
+print('\ttouch stamp')
 print('')
 
 print('out/stamp:')
