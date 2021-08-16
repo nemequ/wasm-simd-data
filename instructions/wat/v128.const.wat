@@ -1,10 +1,7 @@
 (module
   (type (;0;) (func (result v128)))
   (func $v128_const (type 0) (result v128)
-    i64.const 42
-    i64x2.splat
-    i64.const 1729
-    i64x2.replace_lane 1)
+    v128.const i32x4 0x0000002a 0x00000000 0x000006c1 0x00000000)
   (memory (;0;) 2)
   (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
