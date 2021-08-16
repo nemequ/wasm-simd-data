@@ -5,6 +5,5 @@
     local.get 1
     i32x4.min_s)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i32x4_min_s" (func $i32x4_min_s)))

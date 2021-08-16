@@ -6,6 +6,5 @@
     local.get 2
     v128.bitselect)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "v128_bitselect" (func $v128_bitselect)))

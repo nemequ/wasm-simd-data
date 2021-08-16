@@ -5,6 +5,5 @@
     local.get 1
     v128.store8_lane 0)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "v128_store64_lane" (func $v128_store64_lane)))

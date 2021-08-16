@@ -5,6 +5,5 @@
     local.get 1
     i64x2.le_s)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i64x2_le_s" (func $i64x2_le_s)))

@@ -4,6 +4,5 @@
     local.get 0
     i32x4.bitmask)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i32x4_bitmask" (func $i32x4_bitmask)))

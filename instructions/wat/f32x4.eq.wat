@@ -5,6 +5,5 @@
     local.get 1
     f32x4.eq)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "f32x4_eq" (func $f32x4_eq)))

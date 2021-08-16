@@ -5,6 +5,5 @@
     local.get 1
     f64x2.max)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "f64x2_max" (func $f64x2_max)))

@@ -4,6 +4,5 @@
     local.get 0
     i64x2.all_true)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i64x2_all_true" (func $i64x2_all_true)))

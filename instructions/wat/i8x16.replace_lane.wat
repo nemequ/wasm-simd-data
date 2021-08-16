@@ -5,6 +5,5 @@
     local.get 1
     i8x16.replace_lane 0)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i8x16_replace_lane" (func $i8x16_replace_lane)))

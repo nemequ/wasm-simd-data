@@ -5,6 +5,5 @@
     local.get 1
     f32x4.lt)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "f32x4_lt" (func $f32x4_lt)))

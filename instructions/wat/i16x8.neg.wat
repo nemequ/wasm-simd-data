@@ -4,6 +4,5 @@
     local.get 0
     i16x8.neg)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i16x8_neg" (func $i16x8_neg)))

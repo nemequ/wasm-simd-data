@@ -1,7 +1,6 @@
 CFLAGS ?= -O3 --target=wasm32 -msimd128 --no-standard-libraries -Wl,--no-entry
 CLANG ?= clang
 WASM2WAT ?= wasm2wat
-PYTHON3 ?= python3
 WAT_DESTINATION_DIR ?= ../wat
 
 # By default, build all *.wasm and *.wat files.
@@ -18,8 +17,9 @@ out/%.wasm: %.c out
 # Generate *.wat files into the `wat` destination directory.
 WAT=$(WASM:out/%.wasm=$(WAT_DESTINATION_DIR)/%.wat)
 wat: $(WAT)
+REMOVE_UNNECESSARY_WAT=sed -E '/^\s+\(global/d'
 $(WAT_DESTINATION_DIR)/%.wat: out/%.wasm
-	$(WASM2WAT) --enable-simd $< -o $@
+	$(WASM2WAT) --enable-simd $< | $(REMOVE_UNNECESSARY_WAT) > $@
 
 # Helper targets.
 out:

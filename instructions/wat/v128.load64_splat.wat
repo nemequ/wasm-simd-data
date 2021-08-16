@@ -4,6 +4,5 @@
     local.get 0
     v128.load64_splat align=1)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "v128_load64_splat" (func $v128_load64_splat)))

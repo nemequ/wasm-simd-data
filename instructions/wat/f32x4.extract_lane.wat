@@ -4,6 +4,5 @@
     local.get 0
     f32x4.extract_lane 0)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "f32x4_extract_lane" (func $f32x4_extract_lane)))

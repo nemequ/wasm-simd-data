@@ -5,6 +5,5 @@
     local.get 1
     i8x16.shr_s)
   (memory (;0;) 2)
-  (global $__stack_pointer (mut i32) (i32.const 66560))
   (export "memory" (memory 0))
   (export "i8x16_shr_s" (func $i8x16_shr_s)))
