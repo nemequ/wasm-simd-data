@@ -1,0 +1,9 @@
+(module
+  (type (;0;) (func (param i32 v128) (result v128)))
+  (func $v128_load16_lane (type 0) (param i32 v128) (result v128)
+    local.get 0
+    local.get 1
+    v128.load16_lane align=1 0)
+  (memory (;0;) 2)
+  (export "memory" (memory 0))
+  (export "v128_load16_lane" (func $v128_load16_lane)))
